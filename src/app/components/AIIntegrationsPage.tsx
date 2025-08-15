@@ -9,7 +9,6 @@ import { Button } from "./ui/button";
 import { Badge } from "./ui/badge";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import {
-  Bot,
   Brain,
   MessageCircle,
   Users,
@@ -214,7 +213,7 @@ export function AIIntegrationsPage() {
                   className="text-base px-8 hover:scale-105 transition-all duration-200"
                   onClick={() => (window.location.hash = "contact")}
                 >
-                  Let's Build Your AI System
+                  Let&rsquo;s Build Your AI System
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
 
@@ -471,10 +470,10 @@ export function AIIntegrationsPage() {
               <Lightbulb className="h-10 w-10 text-primary" />
             </div>
             <h2 className="text-3xl lg:text-4xl font-bold mb-6">
-              Let's Build Your AI System
+              Let&rsquo;s Build Your AI System
             </h2>
             <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Ready to deploy AI that actually works? Let's discuss your
+              Ready to deploy AI that actually works? Let&rsquo;s discuss your
               specific challenges and design a solution that delivers real
               business value.
             </p>

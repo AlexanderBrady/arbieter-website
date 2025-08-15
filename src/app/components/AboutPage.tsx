@@ -1,123 +1,147 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
-import { Button } from './ui/button';
-import { Badge } from './ui/badge';
-import { ImageWithFallback } from './figma/ImageWithFallback';
-import { 
-  Brain, 
-  Building2, 
-  Code, 
-  Users, 
-  Target, 
-  CheckCircle,
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "./ui/card";
+import { Button } from "./ui/button";
+import { Badge } from "./ui/badge";
+import { ImageWithFallback } from "./figma/ImageWithFallback";
+import {
+  Brain,
+  Building2,
+  Code,
+  Users,
+  Target,
   ArrowRight,
   Zap,
   Shield,
   TrendingUp,
   Coffee,
-  Lightbulb
-} from 'lucide-react';
+  Lightbulb,
+} from "lucide-react";
 
 export function AboutPage() {
   const approach = [
     {
-      title: 'Technical-First Methodology',
-      description: 'We start with architecture, not marketing. Every solution is built on solid engineering principles.'
+      title: "Technical-First Methodology",
+      description:
+        "We start with architecture, not marketing. Every solution is built on solid engineering principles.",
     },
     {
-      title: 'Real-World Testing',
-      description: 'Our systems are battle-tested across diverse industries before we recommend them to clients.'
+      title: "Real-World Testing",
+      description:
+        "Our systems are battle-tested across diverse industries before we recommend them to clients.",
     },
     {
-      title: 'Measurable Outcomes',
-      description: 'We focus on ROI, time savings, and operational efficiency—not buzzwords or vanity metrics.'
+      title: "Measurable Outcomes",
+      description:
+        "We focus on ROI, time savings, and operational efficiency—not buzzwords or vanity metrics.",
     },
     {
-      title: 'Industry Expertise',
-      description: 'Deep understanding of construction, real estate, hospitality, and technology sector challenges.'
-    }
+      title: "Industry Expertise",
+      description:
+        "Deep understanding of construction, real estate, hospitality, and technology sector challenges.",
+    },
   ];
 
   const industries = [
     {
       icon: Building2,
-      name: 'Construction',
-      description: 'Project management, safety protocols, resource optimization',
-      color: 'bg-blue-500'
+      name: "Construction",
+      description:
+        "Project management, safety protocols, resource optimization",
+      color: "bg-blue-500",
     },
     {
       icon: Building2,
-      name: 'Real Estate',
-      description: 'Property management, market analysis, client relationships',
-      color: 'bg-green-500'
+      name: "Real Estate",
+      description: "Property management, market analysis, client relationships",
+      color: "bg-green-500",
     },
     {
       icon: Coffee,
-      name: 'Hospitality',
-      description: 'Operations automation, guest experience, revenue optimization',
-      color: 'bg-orange-500'
+      name: "Hospitality",
+      description:
+        "Operations automation, guest experience, revenue optimization",
+      color: "bg-orange-500",
     },
     {
       icon: Code,
-      name: 'Technology',
-      description: 'Software development, AI integration, digital transformation',
-      color: 'bg-purple-500'
+      name: "Technology",
+      description:
+        "Software development, AI integration, digital transformation",
+      color: "bg-purple-500",
     },
     {
       icon: Target,
-      name: 'Startups',
-      description: 'MVP development, scaling solutions, technical consulting',
-      color: 'bg-pink-500'
+      name: "Startups",
+      description: "MVP development, scaling solutions, technical consulting",
+      color: "bg-pink-500",
     },
     {
       icon: Shield,
-      name: 'Service Providers',
-      description: 'Process automation, client management, operational efficiency',
-      color: 'bg-teal-500'
-    }
+      name: "Service Providers",
+      description:
+        "Process automation, client management, operational efficiency",
+      color: "bg-teal-500",
+    },
   ];
 
   const teamMembers = [
     {
-      name: 'Technical Leadership',
-      role: 'Computer Science & Engineering',
-      description: 'Advanced degrees in CS with focus on machine learning, distributed systems, and software architecture.',
-      expertise: ['Machine Learning', 'System Architecture', 'Full-Stack Development']
+      name: "Technical Leadership",
+      role: "Computer Science & Engineering",
+      description:
+        "Advanced degrees in CS with focus on machine learning, distributed systems, and software architecture.",
+      expertise: [
+        "Machine Learning",
+        "System Architecture",
+        "Full-Stack Development",
+      ],
     },
     {
-      name: 'Design & UX',
-      role: 'Architecture & Human-Centered Design',
-      description: 'Background in architectural design principles applied to digital interfaces and user experiences.',
-      expertise: ['UX Design', 'Information Architecture', 'Design Systems']
+      name: "Design & UX",
+      role: "Architecture & Human-Centered Design",
+      description:
+        "Background in architectural design principles applied to digital interfaces and user experiences.",
+      expertise: ["UX Design", "Information Architecture", "Design Systems"],
     },
     {
-      name: 'AI Research',
-      role: 'Neuroscience & Cognitive Computing',
-      description: 'PhD-level expertise in neuroscience informing AI model design and human-computer interaction.',
-      expertise: ['AI Research', 'Cognitive Computing', 'Neural Networks']
-    }
+      name: "AI Research",
+      role: "Neuroscience & Cognitive Computing",
+      description:
+        "PhD-level expertise in neuroscience informing AI model design and human-computer interaction.",
+      expertise: ["AI Research", "Cognitive Computing", "Neural Networks"],
+    },
   ];
 
   const differentiators = [
     {
       icon: Brain,
-      title: 'Academic Rigor',
-      description: 'Our solutions are grounded in computer science fundamentals, not marketing hype.'
+      title: "Academic Rigor",
+      description:
+        "Our solutions are grounded in computer science fundamentals, not marketing hype.",
     },
     {
       icon: Zap,
-      title: 'Proven Systems',
-      description: 'We deploy tested technologies that have delivered results across multiple industries.'
+      title: "Proven Systems",
+      description:
+        "We deploy tested technologies that have delivered results across multiple industries.",
     },
     {
       icon: Users,
-      title: 'Technical Depth',
-      description: 'Led by developers and researchers, not sales teams or account managers.'
+      title: "Technical Depth",
+      description:
+        "Led by developers and researchers, not sales teams or account managers.",
     },
     {
       icon: TrendingUp,
-      title: 'Measurable ROI',
-      description: 'Every solution is designed to cut admin time, unlock growth, and deliver quantifiable results.'
-    }
+      title: "Measurable ROI",
+      description:
+        "Every solution is designed to cut admin time, unlock growth, and deliver quantifiable results.",
+    },
   ];
 
   return (
@@ -131,34 +155,36 @@ export function AboutPage() {
                 About Arbieter
               </Badge>
               <h1 className="text-4xl lg:text-6xl font-bold mb-6">
-                We're Not Another AI Agency
+                We&apos;re Not Another AI Agency
               </h1>
               <div className="text-lg text-muted-foreground mb-8 leading-relaxed space-y-4">
                 <p>
-                  Arbieter is led by developers, designers, and technologists with academic 
-                  grounding in computer science, architecture, and neuroscience, plus real-world 
-                  experience improving operations across industries — from hospitality to 
-                  construction, from startups to established service providers.
+                  Arbieter is led by developers, designers, and technologists
+                  with academic grounding in computer science, architecture, and
+                  neuroscience, plus real-world experience improving operations
+                  across industries — from hospitality to construction, from
+                  startups to established service providers.
                 </p>
                 <p>
-                  We don't throw buzzwords at problems. We deploy tested systems that cut admin, 
-                  unlock growth, and deliver measurable ROI.
+                  We don&apos;t throw buzzwords at problems. We deploy tested
+                  systems that cut admin, unlock growth, and deliver measurable
+                  ROI.
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button 
-                  size="lg" 
+                <Button
+                  size="lg"
                   className="text-base px-8"
-                  onClick={() => window.location.hash = 'case-studies'}
+                  onClick={() => (window.location.hash = "case-studies")}
                 >
                   View Case Studies
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
-                <Button 
-                  variant="outline" 
-                  size="lg" 
+                <Button
+                  variant="outline"
+                  size="lg"
                   className="text-base px-8"
-                  onClick={() => window.location.hash = 'ai-integrations'}
+                  onClick={() => (window.location.hash = "ai-integrations")}
                 >
                   Explore AI Solutions
                 </Button>
@@ -184,10 +210,11 @@ export function AboutPage() {
                 Our Approach
               </h2>
               <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                Unlike typical agencies that lead with marketing promises, we start with 
-                engineering principles and academic rigor. Our methodology is built on 
-                decades of combined experience in both theoretical computer science and 
-                practical implementation across diverse industries.
+                Unlike typical agencies that lead with marketing promises, we
+                start with engineering principles and academic rigor. Our
+                methodology is built on decades of combined experience in both
+                theoretical computer science and practical implementation across
+                diverse industries.
               </p>
               <div className="space-y-6">
                 {approach.map((item, index) => (
@@ -195,7 +222,9 @@ export function AboutPage() {
                     <div className="w-2 h-2 bg-primary rounded-full mt-3 mr-4 flex-shrink-0"></div>
                     <div>
                       <h3 className="font-semibold mb-2">{item.title}</h3>
-                      <p className="text-muted-foreground text-sm">{item.description}</p>
+                      <p className="text-muted-foreground text-sm">
+                        {item.description}
+                      </p>
                     </div>
                   </div>
                 ))}
@@ -220,7 +249,9 @@ export function AboutPage() {
               What Sets Us Apart
             </h2>
             <p className="text-lg text-muted-foreground">
-              The difference between Arbieter and typical agencies isn't just our technical expertise—it's our fundamental approach to problem-solving.
+              The difference between Arbieter and typical agencies isn&apos;t
+              just our technical expertise—it&apos;s our fundamental approach to
+              problem-solving.
             </p>
           </div>
 
@@ -228,12 +259,17 @@ export function AboutPage() {
             {differentiators.map((item, index) => {
               const IconComponent = item.icon;
               return (
-                <Card key={index} className="text-center p-6 bg-background hover:shadow-md transition-shadow">
+                <Card
+                  key={index}
+                  className="text-center p-6 bg-background hover:shadow-md transition-shadow"
+                >
                   <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
                     <IconComponent className="h-8 w-8 text-primary" />
                   </div>
                   <h3 className="font-semibold mb-3">{item.title}</h3>
-                  <p className="text-sm text-muted-foreground">{item.description}</p>
+                  <p className="text-sm text-muted-foreground">
+                    {item.description}
+                  </p>
                 </Card>
               );
             })}
@@ -246,11 +282,12 @@ export function AboutPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl lg:text-5xl font-bold mb-6">
-              Industries We've Transformed
+              Industries We&apos;ve Transformed
             </h2>
             <p className="text-lg text-muted-foreground">
-              From startups to established enterprises, we've deployed AI and development 
-              solutions across diverse sectors with measurable results.
+              From startups to established enterprises, we&apos;ve deployed AI
+              and development solutions across diverse sectors with measurable
+              results.
             </p>
           </div>
 
@@ -258,9 +295,14 @@ export function AboutPage() {
             {industries.map((industry, index) => {
               const IconComponent = industry.icon;
               return (
-                <Card key={index} className="p-6 hover:shadow-lg transition-shadow group">
+                <Card
+                  key={index}
+                  className="p-6 hover:shadow-lg transition-shadow group"
+                >
                   <CardHeader className="pb-4">
-                    <div className={`w-12 h-12 ${industry.color} rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
+                    <div
+                      className={`w-12 h-12 ${industry.color} rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}
+                    >
                       <IconComponent className="h-6 w-6 text-white" />
                     </div>
                     <CardTitle className="text-lg">{industry.name}</CardTitle>
@@ -278,11 +320,12 @@ export function AboutPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl lg:text-5xl font-bold mb-6">
-              Leadership & Expertise
+              Leadership &amp; Expertise
             </h2>
             <p className="text-lg text-muted-foreground">
-              Our interdisciplinary team brings together computer science, architecture, 
-              and neuroscience to create uniquely effective solutions.
+              Our interdisciplinary team brings together computer science,
+              architecture, and neuroscience to create uniquely effective
+              solutions.
             </p>
           </div>
 
@@ -293,7 +336,9 @@ export function AboutPage() {
                   <div className="w-16 h-16 bg-gradient-to-br from-primary/20 to-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                     <Lightbulb className="h-8 w-8 text-primary" />
                   </div>
-                  <CardTitle className="text-lg text-center">{member.name}</CardTitle>
+                  <CardTitle className="text-lg text-center">
+                    {member.name}
+                  </CardTitle>
                   <CardDescription className="text-center font-medium text-primary">
                     {member.role}
                   </CardDescription>
@@ -306,7 +351,11 @@ export function AboutPage() {
                     <h4 className="font-medium text-sm">Core Expertise:</h4>
                     <div className="flex flex-wrap gap-2 justify-center">
                       {member.expertise.map((skill, skillIndex) => (
-                        <Badge key={skillIndex} variant="secondary" className="text-xs">
+                        <Badge
+                          key={skillIndex}
+                          variant="secondary"
+                          className="text-xs"
+                        >
                           {skill}
                         </Badge>
                       ))}
@@ -327,23 +376,23 @@ export function AboutPage() {
               Ready to Work with Real Technologists?
             </h2>
             <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Skip the sales pitch. Let's have a technical conversation about your 
-              challenges and explore solutions that actually work.
+              Skip the sales pitch. Let&apos;s have a technical conversation
+              about your challenges and explore solutions that actually work.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                size="lg" 
+              <Button
+                size="lg"
                 className="text-base px-12 py-6"
-                onClick={() => window.location.hash = 'contact'}
+                onClick={() => (window.location.hash = "contact")}
               >
-                Let's Build
+                Let&apos;s Build
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
-              <Button 
-                variant="outline" 
-                size="lg" 
+              <Button
+                variant="outline"
+                size="lg"
                 className="text-base px-8 py-6"
-                onClick={() => window.location.hash = 'case-studies'}
+                onClick={() => (window.location.hash = "case-studies")}
               >
                 View Our Work
               </Button>
