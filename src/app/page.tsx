@@ -1,103 +1,136 @@
-import Image from "next/image";
+"use client";
+
+import { useEffect, useMemo, useState } from "react";
+
+// Adjust these imports to your actual paths
+import { Header } from "@/app/components/Header";
+import { HeroSection } from "@/app/components/HeroSection";
+import { ServicesSection } from "@/app/components/ServicesSection";
+import { TestimonialsSection } from "@/app/components/TestimonialsSection";
+import { Footer } from "@/app/components/Footer";
+import { AIIntegrationsPage } from "@/app/components/AIIntegrationsPage";
+import { CaseStudiesPage } from "@/app/components/CaseStudiesPage";
+import { AboutPage } from "@/app/components/AboutPage";
+import { ContactPage } from "@/app/components/ContactPage";
+import { DemoPage } from "@/app/components/DemoPage";
+import { ConsultingPage } from "@/app/components/ConsultingPage";
+import { BlogPage } from "@/app/components/BlogPage";
+import { LegalPage } from "@/app/components/LegalPage";
+
+type HashPage =
+  | "home"
+  | "ai-integrations"
+  | "case-studies"
+  | "about"
+  | "contact"
+  | "demo"
+  | "consulting"
+  | "blog"
+  | "legal";
+
+const KNOWN: HashPage[] = [
+  "home",
+  "ai-integrations",
+  "case-studies",
+  "about",
+  "contact",
+  "demo",
+  "consulting",
+  "blog",
+  "legal",
+];
 
 export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  // Avoid reading window during SSR; set initial on mount
+  const [currentPage, setCurrentPage] = useState<HashPage>("home");
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+  // Parse current hash -> page (defaults to home)
+  const readHash = () => {
+    const raw = (typeof window !== "undefined" ? window.location.hash : "")
+      .replace(/^#/, "")
+      .trim();
+    return (KNOWN.includes(raw as HashPage) ? raw : "home") as HashPage;
+  };
+
+  // Set initial page + listen for changes
+  useEffect(() => {
+    setCurrentPage(readHash());
+    const onHash = () => {
+      setCurrentPage(readHash());
+      window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
+    };
+    window.addEventListener("hashchange", onHash);
+    return () => window.removeEventListener("hashchange", onHash);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // Map internal links to hash equivalents (keeps your current nav working)
+  const linkMap = useMemo<Record<string, string>>(
+    () => ({
+      "/": "#",
+      "/ai-integrations": "#ai-integrations",
+      "/case-studies": "#case-studies",
+      "/about": "#about",
+      "/contact": "#contact",
+      "/demo": "#demo",
+      "/consulting": "#consulting",
+      "/blog": "#blog",
+      "/legal": "#legal",
+    }),
+    []
+  );
+
+  useEffect(() => {
+    const rewrite = () => {
+      document
+        .querySelectorAll<HTMLAnchorElement>('a[href^="/"]')
+        .forEach((a) => {
+          const href = a.getAttribute("href") || "";
+          const to = linkMap[href];
+          if (to && a.getAttribute("href") !== to) a.setAttribute("href", to);
+        });
+    };
+    rewrite();
+    // Run again after child components mount
+    const t = setTimeout(rewrite, 50);
+    return () => clearTimeout(t);
+  }, [currentPage, linkMap]);
+
+  const renderPage = () => {
+    switch (currentPage) {
+      case "ai-integrations":
+        return <AIIntegrationsPage />;
+      case "case-studies":
+        return <CaseStudiesPage />;
+      case "about":
+        return <AboutPage />;
+      case "contact":
+        return <ContactPage />;
+      case "demo":
+        return <DemoPage />;
+      case "consulting":
+        return <ConsultingPage />;
+      case "blog":
+        return <BlogPage />;
+      case "legal":
+        return <LegalPage />;
+      case "home":
+      default:
+        return (
+          <>
+            <HeroSection />
+            <ServicesSection />
+            <TestimonialsSection />
+          </>
+        );
+    }
+  };
+
+  return (
+    <div className="min-h-screen bg-background text-foreground">
+      <Header />
+      <main>{renderPage()}</main>
+      <Footer />
     </div>
   );
 }
