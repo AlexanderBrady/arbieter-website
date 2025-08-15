@@ -1,10 +1,16 @@
-import { useState } from 'react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
-import { Button } from './ui/button';
-import { Badge } from './ui/badge';
-import { Input } from './ui/input';
-import { Label } from './ui/label';
-import { 
+import { useState } from "react";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "./ui/card";
+import { Button } from "./ui/button";
+import { Badge } from "./ui/badge";
+import { Input } from "./ui/input";
+import { Label } from "./ui/label";
+import {
   Play,
   Calendar,
   CheckCircle,
@@ -12,46 +18,48 @@ import {
   Clock,
   Users,
   Video,
-  PhoneCall
-} from 'lucide-react';
+  PhoneCall,
+} from "lucide-react";
 
 export function DemoPage() {
   const [isScheduled, setIsScheduled] = useState(false);
-  const [selectedTime, setSelectedTime] = useState('');
+  const [selectedTime, setSelectedTime] = useState("");
 
   const demoOptions = [
     {
-      title: 'Live Demo Call',
-      duration: '20 minutes',
-      description: 'Personal walkthrough with our team showing AI solutions tailored to your industry',
+      title: "Live Demo Call",
+      duration: "20 minutes",
+      description:
+        "Personal walkthrough with our team showing AI solutions tailored to your industry",
       icon: Video,
       features: [
-        'Custom demo based on your needs',
-        'Live Q&A with our experts',
-        'See real implementations',
-        'Discuss your specific use case'
-      ]
+        "Custom demo based on your needs",
+        "Live Q&A with our experts",
+        "See real implementations",
+        "Discuss your specific use case",
+      ],
     },
     {
-      title: 'Quick Product Tour',
-      duration: '5 minutes',
-      description: 'Interactive self-guided tour of our key AI integration capabilities',
+      title: "Quick Product Tour",
+      duration: "5 minutes",
+      description:
+        "Interactive self-guided tour of our key AI integration capabilities",
       icon: Play,
       features: [
-        'Immediate access',
-        'Interactive walkthrough',
-        'Key feature highlights',
-        'No commitment required'
-      ]
-    }
+        "Immediate access",
+        "Interactive walkthrough",
+        "Key feature highlights",
+        "No commitment required",
+      ],
+    },
   ];
 
   const timeSlots = [
-    '9:00 AM GMT',
-    '11:00 AM GMT',
-    '2:00 PM GMT',
-    '4:00 PM GMT',
-    '6:00 PM GMT'
+    "9:00 AM GMT",
+    "11:00 AM GMT",
+    "2:00 PM GMT",
+    "4:00 PM GMT",
+    "6:00 PM GMT",
   ];
 
   if (isScheduled) {
@@ -67,18 +75,23 @@ export function DemoPage() {
                 Demo Scheduled Successfully
               </h1>
               <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                Your demo is confirmed for {selectedTime}. We'll send you a calendar invite and meeting link shortly.
+                Your demo is confirmed for {selectedTime}. We&apos;ll send you a
+                calendar invite and meeting link shortly.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" className="text-base px-8" onClick={() => window.location.hash = 'contact'}>
+                <Button
+                  size="lg"
+                  className="text-base px-8"
+                  onClick={() => (window.location.hash = "contact")}
+                >
                   Contact Us
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
-                <Button 
-                  variant="outline" 
-                  size="lg" 
+                <Button
+                  variant="outline"
+                  size="lg"
                   className="text-base px-8"
-                  onClick={() => window.location.hash = ''}
+                  onClick={() => (window.location.hash = "")}
                 >
                   Back to Home
                 </Button>
@@ -103,8 +116,9 @@ export function DemoPage() {
               See Arbieter AI in Action
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Experience how our AI solutions transform construction, real estate, and tech operations. 
-              Choose your preferred demo format below.
+              Experience how our AI solutions transform construction, real
+              estate, and tech operations. Choose your preferred demo format
+              below.
             </p>
           </div>
         </div>
@@ -117,12 +131,27 @@ export function DemoPage() {
             {demoOptions.map((option, index) => {
               const IconComponent = option.icon;
               const isPrimary = index === 0;
-              
+
               return (
-                <Card key={index} className={`p-8 ${isPrimary ? 'ring-2 ring-primary' : ''} hover:shadow-lg transition-shadow`}>
+                <Card
+                  key={index}
+                  className={`p-8 ${
+                    isPrimary ? "ring-2 ring-primary" : ""
+                  } hover:shadow-lg transition-shadow`}
+                >
                   <CardHeader className="pb-6">
-                    <div className={`w-16 h-16 ${isPrimary ? 'bg-primary' : 'bg-muted'} rounded-lg flex items-center justify-center mb-4`}>
-                      <IconComponent className={`h-8 w-8 ${isPrimary ? 'text-primary-foreground' : 'text-foreground'}`} />
+                    <div
+                      className={`w-16 h-16 ${
+                        isPrimary ? "bg-primary" : "bg-muted"
+                      } rounded-lg flex items-center justify-center mb-4`}
+                    >
+                      <IconComponent
+                        className={`h-8 w-8 ${
+                          isPrimary
+                            ? "text-primary-foreground"
+                            : "text-foreground"
+                        }`}
+                      />
                     </div>
                     <div className="flex items-center justify-between">
                       <CardTitle className="text-xl">{option.title}</CardTitle>
@@ -135,23 +164,30 @@ export function DemoPage() {
                       {option.description}
                     </CardDescription>
                   </CardHeader>
-                  
+
                   <CardContent className="space-y-6">
                     <div>
-                      <h4 className="font-medium mb-3">What's included:</h4>
+                      <h4 className="font-medium mb-3">
+                        What&apos;s included:
+                      </h4>
                       <ul className="space-y-2">
                         {option.features.map((feature, featureIndex) => (
-                          <li key={featureIndex} className="text-sm text-muted-foreground flex items-center">
+                          <li
+                            key={featureIndex}
+                            className="text-sm text-muted-foreground flex items-center"
+                          >
                             <CheckCircle className="h-4 w-4 text-primary mr-3 flex-shrink-0" />
                             {feature}
                           </li>
                         ))}
                       </ul>
                     </div>
-                    
+
                     {isPrimary ? (
                       <div className="space-y-4">
-                        <Label className="font-medium">Select preferred time:</Label>
+                        <Label className="font-medium">
+                          Select preferred time:
+                        </Label>
                         <div className="grid grid-cols-2 gap-2">
                           {timeSlots.map((slot) => (
                             <button
@@ -159,16 +195,16 @@ export function DemoPage() {
                               onClick={() => setSelectedTime(slot)}
                               className={`p-3 text-sm rounded-lg border transition-colors ${
                                 selectedTime === slot
-                                  ? 'bg-primary text-primary-foreground border-primary'
-                                  : 'bg-background border-border hover:border-primary'
+                                  ? "bg-primary text-primary-foreground border-primary"
+                                  : "bg-background border-border hover:border-primary"
                               }`}
                             >
                               {slot}
                             </button>
                           ))}
                         </div>
-                        <Button 
-                          className="w-full" 
+                        <Button
+                          className="w-full"
                           size="lg"
                           disabled={!selectedTime}
                           onClick={() => setIsScheduled(true)}
@@ -200,10 +236,11 @@ export function DemoPage() {
                 Why Schedule a Demo?
               </h2>
               <p className="text-lg text-muted-foreground">
-                See exactly how Arbieter's AI solutions can transform your specific business processes.
+                See exactly how Arbieter&apos;s AI solutions can transform your
+                specific business processes.
               </p>
             </div>
-            
+
             <div className="grid md:grid-cols-3 gap-8">
               <div className="text-center">
                 <div className="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -211,27 +248,30 @@ export function DemoPage() {
                 </div>
                 <h3 className="font-semibold mb-2">Personalized Experience</h3>
                 <p className="text-sm text-muted-foreground">
-                  Tailored demonstration focusing on your industry challenges and specific use cases.
+                  Tailored demonstration focusing on your industry challenges
+                  and specific use cases.
                 </p>
               </div>
-              
+
               <div className="text-center">
                 <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
                   <PhoneCall className="h-8 w-8 text-white" />
                 </div>
                 <h3 className="font-semibold mb-2">Expert Guidance</h3>
                 <p className="text-sm text-muted-foreground">
-                  Direct access to our technical team for real-time questions and insights.
+                  Direct access to our technical team for real-time questions
+                  and insights.
                 </p>
               </div>
-              
+
               <div className="text-center">
                 <div className="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
                   <CheckCircle className="h-8 w-8 text-white" />
                 </div>
                 <h3 className="font-semibold mb-2">Proven Results</h3>
                 <p className="text-sm text-muted-foreground">
-                  See real case studies and ROI examples from similar businesses in your sector.
+                  See real case studies and ROI examples from similar businesses
+                  in your sector.
                 </p>
               </div>
             </div>
@@ -247,15 +287,24 @@ export function DemoPage() {
               Ready to Transform Your Operations?
             </h2>
             <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Join hundreds of businesses already leveraging AI to streamline operations, 
-              reduce costs, and accelerate growth.
+              Join hundreds of businesses already leveraging AI to streamline
+              operations, reduce costs, and accelerate growth.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="text-base px-8" onClick={() => window.location.hash = 'contact'}>
+              <Button
+                size="lg"
+                className="text-base px-8"
+                onClick={() => (window.location.hash = "contact")}
+              >
                 Get Started Today
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
-              <Button variant="outline" size="lg" className="text-base px-8" onClick={() => window.location.hash = 'case-studies'}>
+              <Button
+                variant="outline"
+                size="lg"
+                className="text-base px-8"
+                onClick={() => (window.location.hash = "case-studies")}
+              >
                 View Case Studies
               </Button>
             </div>

@@ -131,7 +131,7 @@ export function ContactPage() {
       answer: "Define, prototype, validate, ship, iterate.",
     },
     {
-      question: "What's your typical project timeline?",
+      question: "What&apos;s your typical project timeline?",
       answer:
         "Most AI integrations take 4-12 weeks. Custom development varies based on complexity, but we provide detailed timelines during discovery.",
     },
@@ -148,10 +148,10 @@ export function ContactPage() {
                 <CheckCircle className="h-10 w-10 text-green-600" />
               </div>
               <h1 className="text-4xl lg:text-5xl font-bold mb-6">
-                Thanks — we're on it.
+                Thanks — we&apos;re on it.
               </h1>
               <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                You'll hear from us within one business day. Want to move
+                You&apos;ll hear from us within one business day. Want to move
                 faster? Book a live demo.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -185,10 +185,10 @@ export function ContactPage() {
               Contact Us
             </Badge>
             <h1 className="text-4xl lg:text-6xl font-bold mb-6">
-              Let's Build Something That Actually Ships
+              Let&apos;s Build Something That Actually Ships
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Tell us about your goals. We'll propose a pragmatic plan,
+              Tell us about your goals. We&apos;ll propose a pragmatic plan,
               timeline, and budget.
             </p>
           </div>

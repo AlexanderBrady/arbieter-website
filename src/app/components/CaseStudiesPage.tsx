@@ -10,9 +10,6 @@ import { Button } from "./ui/button";
 import { Badge } from "./ui/badge";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import {
-  Building2,
-  Coffee,
-  Code,
   Target,
   TrendingUp,
   Clock,
@@ -206,7 +203,7 @@ export function CaseStudiesPage() {
               Real Projects, Measurable Results
             </h1>
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              Explore how we've helped businesses across construction, real
+              Explore how we&apos;ve helped businesses across construction, real
               estate, hospitality, and technology achieve significant
               improvements in efficiency, cost reduction, and growth.
             </p>
@@ -399,7 +396,7 @@ export function CaseStudiesPage() {
               Ready to Be Our Next Success Story?
             </h2>
             <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Let's discuss how we can deliver similar results for your
+              Let&apos;s discuss how we can deliver similar results for your
               business. Every project starts with understanding your unique
               challenges.
             </p>
