@@ -43,7 +43,7 @@ export function CaseStudiesPage() {
         "TEST project scheduling causing 30% delays and resource conflicts across 50+ active construction sites.",
       solution:
         "AI-powered scheduling platform with real-time resource optimization and predictive delay prevention.",
-      image: "https://imgur.com/a/GSfmLHS",
+      image: "/caseStudy1.png",
       results: [
         { metric: "40%", label: "Reduction in project delays", icon: Clock },
         { metric: "$2.3M", label: "Annual cost savings", icon: DollarSign },
@@ -226,7 +226,7 @@ export function CaseStudiesPage() {
                 <ImageWithFallback
                   src={featuredStudy.image}
                   alt={featuredStudy.title}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-left"
                 />
                 <div className="absolute top-4 left-4">
                   <Badge className="bg-primary text-primary-foreground">
