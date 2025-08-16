@@ -54,6 +54,7 @@ export function CaseStudiesPage() {
       technologies: ["Python", "TensorFlow", "React", "PostgreSQL", "AWS"],
       duration: "4 months",
       featured: true,
+      link: "https://gbconstruction.in/", // 👈 add your real link
     },
     {
       id: 2,
@@ -64,7 +65,7 @@ export function CaseStudiesPage() {
       problem:
         "Construction teams were wasting hours managing RFIs manually, with delays, missed deadlines, and no clear visibility on SLA compliance.",
       solution:
-        "An AI-powered RFI management dashboard with real-time tracking, SLA compliance monitoring, automated intake, and visual reporting, designed for web, tablet, and mobile use.prehensive analytics dashboard with AI-powered market predictions and investment scoring.",
+        "An AI-powered RFI management dashboard with real-time tracking, SLA compliance monitoring, automated intake, and visual reporting, designed for web, tablet, and mobile use.",
       image: "/RFI.png",
       results: [
         {
@@ -75,17 +76,10 @@ export function CaseStudiesPage() {
         { metric: "94%", label: "SLA compliance achieved", icon: ShieldCheck },
         { metric: "2x", label: "Faster project reporting", icon: BarChart3 },
       ],
-      technologies: [
-        "React",
-        "TypeScript",
-        "Tailwind CSS",
-        "Python",
-        "PostgreSQL",
-        "clsx",
-        "PostgreSQL",
-      ],
+      technologies: ["React", "TypeScript", "Tailwind CSS", "Python"],
       duration: "2 months",
       featured: false,
+      link: "https://example.com/case-study-2",
     },
     {
       id: 3,
@@ -110,6 +104,7 @@ export function CaseStudiesPage() {
       technologies: ["React", "Node.js", "GA4", "Google Ads", "Stripe"],
       duration: "3 months",
       featured: false,
+      link: "https://example.com/case-study-3",
     },
     {
       id: 4,
@@ -136,6 +131,7 @@ export function CaseStudiesPage() {
       ],
       duration: "3 months",
       featured: true,
+      link: "https://example.com/case-study-4",
     },
     {
       id: 5,
@@ -164,6 +160,7 @@ export function CaseStudiesPage() {
       technologies: ["Python", "React", "Unity WebGL", "AWS", "Node.js"],
       duration: "3 months",
       featured: false,
+      link: "https://example.com/case-study-5",
     },
     {
       id: 6,
@@ -189,6 +186,7 @@ export function CaseStudiesPage() {
       technologies: ["React", "FastAPI", "OpenAI", "PostgreSQL", "AWS Lambda"],
       duration: "4 months",
       featured: false,
+      link: "https://example.com/case-study-6",
     },
   ];
 
@@ -202,34 +200,9 @@ export function CaseStudiesPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Hero Section */}
-      <section className="relative py-20 lg:py-28 bg-gradient-to-br from-primary/5 to-muted/20">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-4xl mx-auto">
-            <Badge variant="secondary" className="mb-4">
-              Case Studies
-            </Badge>
-            <h1 className="text-4xl lg:text-6xl font-bold mb-6">
-              Real Projects, Measurable Results
-            </h1>
-            <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              Explore how we&apos;ve helped businesses across construction, real
-              estate, hospitality, and technology achieve significant
-              improvements in efficiency, cost reduction, and growth.
-            </p>
-          </div>
-        </div>
-      </section>
-
       {/* Featured Case Study */}
       <section className="py-20 lg:py-28">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-4">
-              Featured Success Story
-            </h2>
-          </div>
-
           <Card className="overflow-hidden shadow-2xl">
             <div className="grid lg:grid-cols-2 gap-0">
               <div className="relative h-64 lg:h-auto">
@@ -238,11 +211,6 @@ export function CaseStudiesPage() {
                   alt={featuredStudy.title}
                   className="w-full h-full object-cover object-left"
                 />
-                <div className="absolute top-4 left-4">
-                  <Badge className="bg-primary text-primary-foreground">
-                    Featured
-                  </Badge>
-                </div>
               </div>
               <div className="p-8 lg:p-12">
                 <Badge variant="outline" className="mb-4">
@@ -252,18 +220,8 @@ export function CaseStudiesPage() {
                   {featuredStudy.title}
                 </h3>
                 <div className="space-y-4 mb-8">
-                  <div>
-                    <h4 className="font-semibold mb-2 text-sm text-muted-foreground uppercase tracking-wide">
-                      Problem
-                    </h4>
-                    <p className="text-sm">{featuredStudy.problem}</p>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold mb-2 text-sm text-muted-foreground uppercase tracking-wide">
-                      Solution
-                    </h4>
-                    <p className="text-sm">{featuredStudy.solution}</p>
-                  </div>
+                  <p className="text-sm">{featuredStudy.problem}</p>
+                  <p className="text-sm">{featuredStudy.solution}</p>
                 </div>
                 <div className="grid grid-cols-3 gap-4 mb-8">
                   {featuredStudy.results.map((result, index) => {
@@ -284,33 +242,20 @@ export function CaseStudiesPage() {
                     );
                   })}
                 </div>
-                <Button className="w-full">
-                  View Full Case Study
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
+                <a
+                  href={featuredStudy.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full block"
+                >
+                  <Button className="w-full">
+                    View Full Case Study
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </a>
               </div>
             </div>
           </Card>
-        </div>
-      </section>
-
-      {/* Filter Section */}
-      <section className="py-12 bg-muted/30">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap items-center justify-center gap-2">
-            <Filter className="h-4 w-4 text-muted-foreground mr-2" />
-            {filters.map((filter) => (
-              <Button
-                key={filter.id}
-                variant={selectedFilter === filter.id ? "default" : "outline"}
-                size="sm"
-                onClick={() => setSelectedFilter(filter.id)}
-                className="text-sm"
-              >
-                {filter.name}
-              </Button>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -332,13 +277,6 @@ export function CaseStudiesPage() {
                   <div className="absolute top-4 left-4">
                     <Badge variant="secondary">{study.category}</Badge>
                   </div>
-                  {study.featured && (
-                    <div className="absolute top-4 right-4">
-                      <Badge className="bg-primary text-primary-foreground">
-                        Featured
-                      </Badge>
-                    </div>
-                  )}
                 </div>
                 <CardHeader>
                   <CardTitle className="text-lg group-hover:text-primary transition-colors">
@@ -384,50 +322,23 @@ export function CaseStudiesPage() {
                       </Badge>
                     )}
                   </div>
-                  <Button
-                    variant="outline"
-                    className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors"
+                  <a
+                    href={study.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full block"
                   >
-                    Read Full Case Study
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
+                    <Button
+                      variant="outline"
+                      className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors"
+                    >
+                      See Full Case Study
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </a>
                 </CardContent>
               </Card>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-20 lg:py-28">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center bg-primary/5 rounded-2xl p-12">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-6">
-              Ready to Be Our Next Success Story?
-            </h2>
-            <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Let&apos;s discuss how we can deliver similar results for your
-              business. Every project starts with understanding your unique
-              challenges.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                size="lg"
-                className="text-base px-12 py-6"
-                onClick={() => (window.location.hash = "contact")}
-              >
-                Work With Us
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-              <Button
-                variant="outline"
-                size="lg"
-                className="text-base px-8 py-6"
-                onClick={() => (window.location.hash = "demo")}
-              >
-                Schedule Consultation
-              </Button>
-            </div>
           </div>
         </div>
       </section>
