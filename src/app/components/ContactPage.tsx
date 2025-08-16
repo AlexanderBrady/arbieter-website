@@ -131,7 +131,7 @@ export function ContactPage() {
       answer: "Define, prototype, validate, ship, iterate.",
     },
     {
-      question: "What&apos;s your typical project timeline?",
+      question: "What is your typical project timeline?",
       answer:
         "Most AI integrations take 4-12 weeks. Custom development varies based on complexity, but we provide detailed timelines during discovery.",
     },

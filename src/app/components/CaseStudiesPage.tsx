@@ -19,6 +19,8 @@ import {
   Filter,
   CheckCircle,
   BarChart3,
+  ShieldCheck,
+  Star,
 } from "lucide-react";
 
 export function CaseStudiesPage() {
@@ -40,14 +42,14 @@ export function CaseStudiesPage() {
       category: "Construction",
       client: "BuildTech Solutions",
       problem:
-        "TEST project scheduling causing 30% delays and resource conflicts across 50+ active construction sites.",
+        "Outdated systems slowed down scheduling, reporting, and coordination across multiple construction sites. Manual processes led to delays, missed updates, and rising operational costs.",
       solution:
-        "AI-powered scheduling platform with real-time resource optimization and predictive delay prevention.",
+        "A full stack digital platform built for scale. We delivered an integrated system covering project scheduling, resource tracking, and live dashboards. This gave GB Construction real time control and measurable savings across every site.",
       image: "/caseStudy1.png",
       results: [
         { metric: "40%", label: "Reduction in project delays", icon: Clock },
-        { metric: "$2.3M", label: "Annual cost savings", icon: DollarSign },
-        { metric: "95%", label: "Resource utilization rate", icon: BarChart3 },
+        { metric: "25%", label: "Staff efficiency gain", icon: Users },
+        { metric: "95%", label: "Resource utilisation rate", icon: BarChart3 },
       ],
       technologies: ["Python", "TensorFlow", "React", "PostgreSQL", "AWS"],
       duration: "4 months",
@@ -55,50 +57,58 @@ export function CaseStudiesPage() {
     },
     {
       id: 2,
-      title: "Real Estate Analytics Platform",
-      industry: "real-estate",
-      category: "Real Estate",
-      client: "PropertyFlow Investments",
+      title: "RFI Management Dashboard",
+      industry: "construction",
+      category: "Construction",
+      client: "Internal Dashboard",
       problem:
-        "Inefficient property analysis leading to poor investment decisions and missed opportunities.",
+        "Construction teams were wasting hours managing RFIs manually, with delays, missed deadlines, and no clear visibility on SLA compliance.",
       solution:
-        "Comprehensive analytics dashboard with AI-powered market predictions and investment scoring.",
-      image:
-        "https://images.unsplash.com/photo-1720442617080-c25f9955194c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxyZWFsJTIwZXN0YXRlJTIwbW9kZXJuJTIwYnVpbGRpbmd8ZW58MXx8fHwxNzU1MDkwNjU1fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+        "An AI-powered RFI management dashboard with real-time tracking, SLA compliance monitoring, automated intake, and visual reporting, designed for web, tablet, and mobile use.prehensive analytics dashboard with AI-powered market predictions and investment scoring.",
+      image: "/RFI.png",
       results: [
-        { metric: "60%", label: "Faster decision making", icon: TrendingUp },
-        { metric: "35%", label: "ROI improvement", icon: DollarSign },
-        { metric: "90%", label: "Investment accuracy", icon: Target },
+        {
+          metric: "60%",
+          label: "Admin time reduced per RFI",
+          icon: TrendingUp,
+        },
+        { metric: "94%", label: "SLA compliance achieved", icon: ShieldCheck },
+        { metric: "2x", label: "Faster project reporting", icon: BarChart3 },
       ],
       technologies: [
-        "Vue.js",
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
         "Python",
-        "scikit-learn",
         "PostgreSQL",
-        "Docker",
+        "clsx",
+        "PostgreSQL",
       ],
-      duration: "6 months",
+      duration: "2 months",
       featured: false,
     },
     {
       id: 3,
-      title: "Hotel Operations Automation",
+      title: "Full Stack Web Rebuild with Ads + GA4",
       industry: "hospitality",
       category: "Hospitality",
-      client: "Grand Hotels Group",
+      client: "Off-Piste Ski and Snowboard",
       problem:
-        "Manual guest service processes and inefficient staff scheduling across 12 hotel properties.",
+        "Outdated website with poor mobile experience, unclear messaging, and no proper conversion tracking—leading to low online bookings and missed growth opportunities.",
       solution:
-        "Integrated automation platform for guest services, housekeeping, and staff management.",
-      image:
-        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxidXNpbmVzcyUyMHN1Y2Nlc3MlMjBtZXRyaWNzJTIwZGFzaGJvYXJkfGVufDF8fHx8MTc1NTAyMjQ0OHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+        "Rebuilt the website with sharper UX, streamlined booking flow, mobile-first performance, and clearer brand storytelling. Implemented GA4 conversion tracking and integrated Google Ads retargeting campaigns to maximize ROI.",
+      image: "/Off-piste1.png",
       results: [
-        { metric: "50%", label: "Admin time reduction", icon: Clock },
-        { metric: "25%", label: "Staff efficiency gain", icon: Users },
-        { metric: "4.8/5", label: "Guest satisfaction score", icon: Target },
+        { metric: "2.9%", label: "Click-to-sale rate", icon: TrendingUp },
+        { metric: "42%", label: "New customer acquisition lift", icon: Users },
+        {
+          metric: "18%",
+          label: "Year-on-year online sales growth",
+          icon: DollarSign,
+        },
       ],
-      technologies: ["React", "Node.js", "MongoDB", "Redis", "Stripe"],
-      duration: "5 months",
+      technologies: ["React", "Node.js", "GA4", "Google Ads", "Stripe"],
+      duration: "3 months",
       featured: false,
     },
     {
@@ -106,17 +116,16 @@ export function CaseStudiesPage() {
       title: "SaaS Platform MVP Development",
       industry: "technology",
       category: "Technology",
-      client: "InnovateTech Startup",
+      client: "Gearyo Startup",
       problem:
-        "Need to rapidly develop and launch MVP for AI-powered project management tool.",
+        "Need to rapidly develop and launch MVP for AI-powered adventure gear rental tool.",
       solution:
         "Full-stack development of MVP with AI features, user authentication, and payment processing.",
-      image:
-        "https://images.unsplash.com/photo-1557426272-fc759fdf7a8d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzb2Z0d2FyZSUyMGRldmVsb3BtZW50JTIwdGVhbXxlbnwxfHx8fDE3NTUwNjY5MzB8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      image: "/gearyo1.png",
       results: [
         { metric: "3 months", label: "Time to market", icon: Clock },
-        { metric: "$1.2M", label: "Seed funding raised", icon: DollarSign },
-        { metric: "5,000+", label: "Beta users acquired", icon: Users },
+        { metric: "97%", label: "Positive UX feedback", icon: TrendingUp },
+        { metric: "100+", label: "Beta users acquired", icon: Users },
       ],
       technologies: [
         "Next.js",
@@ -130,29 +139,30 @@ export function CaseStudiesPage() {
     },
     {
       id: 5,
-      title: "Retail Chain Inventory AI",
+      title: "Immersive 3D Web Experience",
       industry: "technology",
       category: "Technology",
-      client: "SmartRetail Corp",
+      client: "Coralis Inc",
       problem:
-        "Inventory management across 200+ stores causing stockouts and overstock situations.",
+        "Traditional online stores lacked engagement and failed to replicate the in-store shopping experience, leading to low customer retention and conversion rates.",
       solution:
-        "AI-driven inventory prediction and automated reordering system with demand forecasting.",
-      image:
-        "https://images.unsplash.com/photo-1614680376739-414d95ff43df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxBSSUyMGNoYXRib3QlMjBpbnRlcmZhY2V8ZW58MXx8fHwxNzU1MDkyMTYwfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+        "Developed a 3D immersive e-commerce platform where users can navigate virtual showrooms, interact with products in real-time, and personalize their shopping journey with AR/VR integration.",
+      image: "/Coralis1.png",
       results: [
-        { metric: "70%", label: "Stockout reduction", icon: TrendingUp },
-        { metric: "$800K", label: "Annual savings", icon: DollarSign },
-        { metric: "98%", label: "Forecast accuracy", icon: Target },
+        {
+          metric: "2.5x",
+          label: "Increase in user engagement",
+          icon: TrendingUp,
+        },
+        {
+          metric: "40%",
+          label: "Boost increase in conversion rates",
+          icon: DollarSign,
+        },
+        { metric: "4.8/5", label: "Average customer satisfaction", icon: Star },
       ],
-      technologies: [
-        "Python",
-        "TensorFlow",
-        "Apache Kafka",
-        "BigQuery",
-        "Kubernetes",
-      ],
-      duration: "7 months",
+      technologies: ["Python", "React", "Unity WebGL", "AWS", "Node.js"],
+      duration: "3 months",
       featured: false,
     },
     {
