@@ -160,7 +160,7 @@ export function CaseStudiesPage() {
       technologies: ["Python", "React", "Unity WebGL", "AWS", "Node.js"],
       duration: "3 months",
       featured: false,
-      link: "https://example.com/case-study-5",
+      link: "https://www.coralis.in/home",
     },
     {
       id: 6,
