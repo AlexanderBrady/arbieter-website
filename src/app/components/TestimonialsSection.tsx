@@ -8,9 +8,9 @@ export function TestimonialsSection() {
             Trusted by Industry Leaders
           </h2>
           <p className="text-lg text-muted-foreground">
-            From lead-chasing chatbots to internal copilots,
-            every project we deliver focuses on measurable
-            business outcomes — not vanity metrics.
+            From lead-chasing chatbots to internal copilots, every project we
+            deliver focuses on measurable business outcomes - not vanity
+            metrics.
           </p>
         </div>
       </div>
