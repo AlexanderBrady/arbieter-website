@@ -131,7 +131,7 @@ export function CaseStudiesPage() {
       ],
       duration: "3 months",
       featured: true,
-      link: "https://example.com/case-study-4",
+      link: "/GearyoCS.pdf",
     },
     {
       id: 5,
