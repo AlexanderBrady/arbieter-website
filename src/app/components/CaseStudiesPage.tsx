@@ -79,7 +79,7 @@ export function CaseStudiesPage() {
       technologies: ["React", "TypeScript", "Tailwind CSS", "Python"],
       duration: "2 months",
       featured: false,
-      link: "https://example.com/case-study-2",
+      link: "/RfiCS.pdf",
     },
     {
       id: 3,
