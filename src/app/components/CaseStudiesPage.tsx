@@ -37,27 +37,6 @@ export function CaseStudiesPage() {
   const caseStudies = [
     {
       id: 1,
-      title: "Smart Construction Scheduling System",
-      industry: "construction",
-      category: "Construction",
-      client: "BuildTech Solutions",
-      problem:
-        "Outdated systems slowed down scheduling, reporting, and coordination across multiple construction sites. Manual processes led to delays, missed updates, and rising operational costs.",
-      solution:
-        "A full stack digital platform built for scale. We delivered an integrated system covering project scheduling, resource tracking, and live dashboards. This gave GB Construction real time control and measurable savings across every site.",
-      image: "/caseStudy1.png",
-      results: [
-        { metric: "40%", label: "Reduction in project delays", icon: Clock },
-        { metric: "25%", label: "Staff efficiency gain", icon: Users },
-        { metric: "95%", label: "Resource utilisation rate", icon: BarChart3 },
-      ],
-      technologies: ["Python", "TensorFlow", "React", "PostgreSQL", "AWS"],
-      duration: "4 months",
-      featured: true,
-      link: "https://gbconstruction.in/", // 👈 add your real link
-    },
-    {
-      id: 2,
       title: "RFI Management Dashboard",
       industry: "construction",
       category: "Construction",
@@ -80,6 +59,27 @@ export function CaseStudiesPage() {
       duration: "2 months",
       featured: false,
       link: "/RfiCS.pdf",
+    },
+    {
+      id: 2,
+      title: "Smart Construction Scheduling System",
+      industry: "construction",
+      category: "Construction",
+      client: "GB Construction",
+      problem:
+        "Outdated systems slowed down scheduling, reporting, and coordination across multiple construction sites. Manual processes led to delays, missed updates, and rising operational costs.",
+      solution:
+        "A full stack digital platform built for scale. We delivered an integrated system covering project scheduling, resource tracking, and live dashboards. This gave GB Construction real time control and measurable savings across every site.",
+      image: "/caseStudy1.png",
+      results: [
+        { metric: "40%", label: "Reduction in project delays", icon: Clock },
+        { metric: "25%", label: "Staff efficiency gain", icon: Users },
+        { metric: "95%", label: "Resource utilisation rate", icon: BarChart3 },
+      ],
+      technologies: ["Python", "TensorFlow", "React", "PostgreSQL", "AWS"],
+      duration: "4 months",
+      featured: true,
+      link: "https://gbconstruction.in/",
     },
     {
       id: 3,
