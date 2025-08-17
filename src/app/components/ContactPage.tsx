@@ -1,11 +1,5 @@
 import { useState } from "react";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "./ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { Button } from "./ui/button";
 import { Badge } from "./ui/badge";
 import { Input } from "./ui/input";
@@ -53,6 +47,7 @@ export function ContactPage() {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [copiedEmail, setCopiedEmail] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const serviceOptions = [
     "AI Chatbots for Leads",
@@ -93,10 +88,30 @@ export function ContactPage() {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (validateForm()) {
-      setIsSubmitted(true);
+    if (!validateForm()) return;
+
+    setLoading(true);
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await res.json();
+
+      if (result.ok) {
+        setIsSubmitted(true);
+      } else {
+        alert("Error: " + result.error);
+      }
+    } catch (err) {
+      alert("Something went wrong.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -111,8 +126,7 @@ export function ContactPage() {
       await navigator.clipboard.writeText("alex@arbieter.com");
       setCopiedEmail(true);
       setTimeout(() => setCopiedEmail(false), 2000);
-    } catch (err) {
-      // Fallback for older browsers
+    } catch {
       console.log("Copy failed");
     }
   };
@@ -413,29 +427,6 @@ export function ContactPage() {
                     </div>
                   </div>
 
-                  {/* Budget Range */}
-                  <div>
-                    <Label htmlFor="budget" className="text-sm font-medium">
-                      Budget Range
-                    </Label>
-                    <Select
-                      onValueChange={(value) =>
-                        setFormData((prev) => ({ ...prev, budget: value }))
-                      }
-                    >
-                      <SelectTrigger className="mt-2">
-                        <SelectValue placeholder="Select budget range" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="under-10k">&lt;$10k</SelectItem>
-                        <SelectItem value="10-25k">$10–25k</SelectItem>
-                        <SelectItem value="25-50k">$25–50k</SelectItem>
-                        <SelectItem value="50-100k">$50–100k</SelectItem>
-                        <SelectItem value="100k-plus">$100k+</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-
                   {/* Project Summary */}
                   <div>
                     <Label htmlFor="summary" className="text-sm font-medium">
@@ -470,9 +461,9 @@ export function ContactPage() {
                       type="submit"
                       size="lg"
                       className="text-base px-8"
-                      disabled={!isFormValid}
+                      disabled={!isFormValid || loading}
                     >
-                      Request Proposal
+                      {loading ? "Sending..." : "Request Proposal"}
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
                     <Button
