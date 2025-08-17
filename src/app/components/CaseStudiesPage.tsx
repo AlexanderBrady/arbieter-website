@@ -104,7 +104,7 @@ export function CaseStudiesPage() {
       technologies: ["React", "Node.js", "GA4", "Google Ads", "Stripe"],
       duration: "3 months",
       featured: false,
-      link: "https://example.com/case-study-3",
+      link: "/OffpisteCS.pdf",
     },
     {
       id: 4,
