@@ -1,12 +1,25 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = new Resend(process.env.RESEND_API_KEY || "");
+
+type ContactPayload = {
+  fullName: string;
+  email: string;
+  company: string;
+  role?: string;
+  phone?: string;
+  services?: string[];
+  industry?: string;
+  timeline?: string;
+  budget?: string;
+  summary?: string;
+};
 
 // ✅ Handle POST /api/contact
 export async function POST(req: Request) {
   try {
-    const data = await req.json();
+    const data = (await req.json()) as ContactPayload;
 
     // simple validation
     if (!data.fullName || !data.email || !data.company) {
@@ -46,17 +59,17 @@ export async function POST(req: Request) {
     });
 
     return NextResponse.json({ ok: true });
-  } catch (error: any) {
+  } catch (error) {
     console.error("Error sending email:", error);
-    return NextResponse.json(
-      { ok: false, error: error.message || "Failed to send" },
-      { status: 500 }
-    );
+
+    const message = error instanceof Error ? error.message : "Failed to send";
+
+    return NextResponse.json({ ok: false, error: message }, { status: 500 });
   }
 }
 
 // helper: escape HTML safely
-function escapeHtml(str: string) {
+function escapeHtml(str?: string) {
   if (!str) return "";
   return String(str)
     .replace(/&/g, "&amp;")
