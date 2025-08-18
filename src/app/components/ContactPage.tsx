@@ -508,10 +508,12 @@ export function ContactPage() {
                     </div>
                   </div>
 
+                  {/*
                   <Button className="w-full" variant="outline">
                     <Calendar className="mr-2 h-4 w-4" />
                     Book a 20-min call
                   </Button>
+                  */}
 
                   <div className="flex items-center space-x-3 text-sm text-muted-foreground">
                     <Globe className="h-4 w-4" />
