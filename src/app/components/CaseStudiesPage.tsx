@@ -172,8 +172,7 @@ export function CaseStudiesPage() {
         "Manual tenant communications and maintenance requests for 500+ rental properties.",
       solution:
         "Automated tenant portal with AI chatbot for instant support and intelligent maintenance routing.",
-      image:
-        "https://images.unsplash.com/photo-1645459994498-44bb95c87b17?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkaXZlcnNlJTIwdGVjaCUyMHRlYW0lMjBjb2xsYWJvcmF0aW9ufGVufDF8fHx8MTc1NTA5MjE1OXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      image: "/PMA.png",
       results: [
         {
           metric: "80%",
@@ -186,7 +185,7 @@ export function CaseStudiesPage() {
       technologies: ["React", "FastAPI", "OpenAI", "PostgreSQL", "AWS Lambda"],
       duration: "4 months",
       featured: false,
-      link: "https://example.com/case-study-6",
+      link: "/PMA.pdf",
     },
   ];
 
