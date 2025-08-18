@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Separator } from "./ui/separator";
@@ -45,6 +46,43 @@ export function Footer() {
     { name: "GitHub", href: "#", icon: Github },
   ];
 
+  // --- Newsletter subscribe state + handler ---
+  const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [done, setDone] = useState(false);
+
+  function validEmail(v: string) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim());
+  }
+
+  async function onSubscribe(e: React.FormEvent) {
+    e.preventDefault();
+    if (!validEmail(email)) {
+      alert("Please enter a valid email address.");
+      return;
+    }
+
+    setLoading(true);
+    setDone(false);
+    try {
+      const res = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+      const j = await res.json();
+      if (!res.ok || !j.ok) throw new Error(j.error || "Subscription failed");
+      setDone(true);
+      setEmail("");
+    } catch (err) {
+      alert(
+        (err as Error).message || "Something went wrong. Please try again."
+      );
+    } finally {
+      setLoading(false);
+    }
+  }
+
   return (
     <footer className="bg-primary text-primary-foreground">
       {/* Newsletter Section */}
@@ -60,20 +98,37 @@ export function Footer() {
                 solutions delivered to your inbox monthly.
               </p>
             </div>
-            <div className="flex flex-col sm:flex-row gap-4 max-w-md lg:ml-auto">
+
+            {/* Subscribe form */}
+            <form
+              onSubmit={onSubscribe}
+              className="flex flex-col sm:flex-row gap-4 max-w-md lg:ml-auto"
+            >
               <Input
                 type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email"
+                required
+                aria-label="Email for newsletter"
                 className="bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/60"
               />
               <Button
+                type="submit"
                 variant="secondary"
+                disabled={!email || loading}
                 className="shrink-0 hover:scale-105 transition-all duration-200"
               >
-                Subscribe
+                {loading ? "Subscribing..." : "Subscribe"}
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
-            </div>
+
+              {done && (
+                <span className="block text-sm text-primary-foreground/80 sm:ml-2">
+                  Thanks! We’ll be in touch.
+                </span>
+              )}
+            </form>
           </div>
         </div>
       </div>
