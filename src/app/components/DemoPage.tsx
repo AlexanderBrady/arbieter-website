@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import {
   Card,
   CardContent,
@@ -24,6 +24,13 @@ import {
 export function DemoPage() {
   const [isScheduled, setIsScheduled] = useState(false);
   const [selectedTime, setSelectedTime] = useState("");
+  const [selectedDate, setSelectedDate] = useState(""); // YYYY-MM-DD
+  const [loading, setLoading] = useState(false);
+
+  // NEW: contact fields
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [company, setCompany] = useState("");
 
   const demoOptions = [
     {
@@ -40,7 +47,7 @@ export function DemoPage() {
       ],
     },
     {
-      title: "Quick Product Tour",
+      title: "Quick Product Tour COMING SOON",
       duration: "5 minutes",
       description:
         "Interactive self-guided tour of our key AI integration capabilities",
@@ -62,6 +69,70 @@ export function DemoPage() {
     "6:00 PM GMT",
   ];
 
+  const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
+  // Today in LOCAL timezone -> YYYY-MM-DD (prevents past dates)
+  const todayISO = useMemo(() => {
+    const d = new Date();
+    d.setMinutes(d.getMinutes() - d.getTimezoneOffset()); // shift to local
+    return d.toISOString().split("T")[0];
+  }, []);
+
+  // "9:00 AM GMT" -> "09:00"
+  function to24Hour(slot: string) {
+    const clean = slot.replace(/\s*GMT/i, "").trim(); // "9:00 AM"
+    const m = clean.match(/^(\d{1,2}):(\d{2})\s*(AM|PM)$/i);
+    if (!m) return "";
+    const [, hh, mm, ap] = m; // use const + skip the first match
+    let h = parseInt(hh, 10);
+    const isPM = ap.toUpperCase() === "PM";
+    if (h === 12) h = isPM ? 12 : 0; // 12AM => 00, 12PM => 12
+    else if (isPM) h += 12;
+    return `${String(h).padStart(2, "0")}:${mm}`;
+  }
+
+  async function scheduleDemo() {
+    if (!fullName || !email) {
+      alert("Please enter your name and email.");
+      return;
+    }
+    if (!selectedDate || !selectedTime) {
+      alert("Please pick a date and time.");
+      return;
+    }
+    const time24 = to24Hour(selectedTime);
+    if (!time24) {
+      alert("Time format not recognized.");
+      return;
+    }
+
+    setLoading(true);
+    try {
+      const res = await fetch("/api/demo", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          fullName,
+          email,
+          company,
+          preferredDateISO: selectedDate, // YYYY-MM-DD
+          preferredTime: time24, // HH:mm (24h)
+          timezone: tz,
+        }),
+      });
+      const j = await res.json();
+      if (!res.ok || !j.ok) throw new Error(j.error || "Failed to send");
+      setIsScheduled(true);
+    } catch (e) {
+      alert((e as Error).message || "Failed to schedule. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  const canSubmit =
+    !!fullName && !!email && !!selectedDate && !!selectedTime && !loading;
+
   if (isScheduled) {
     return (
       <div className="min-h-screen bg-background">
@@ -75,8 +146,8 @@ export function DemoPage() {
                 Demo Scheduled Successfully
               </h1>
               <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                Your demo is confirmed for {selectedTime}. We&apos;ll send you a
-                calendar invite and meeting link shortly.
+                Your demo is confirmed for {selectedDate} at {selectedTime}.
+                We&apos;ll send you a calendar invite and meeting link shortly.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button
@@ -91,7 +162,7 @@ export function DemoPage() {
                   variant="outline"
                   size="lg"
                   className="text-base px-8"
-                  onClick={() => (window.location.hash = "")}
+                  onClick={() => (window.location.hash = "#")}
                 >
                   Back to Home
                 </Button>
@@ -105,7 +176,9 @@ export function DemoPage() {
 
   return (
     <div className="min-h-screen bg-background">
+      {/*
       {/* Hero Section */}
+      {/*
       <section className="relative py-20 lg:py-28 bg-gradient-to-br from-primary/5 to-muted/20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
@@ -123,6 +196,7 @@ export function DemoPage() {
           </div>
         </div>
       </section>
+      */}
 
       {/* Demo Options */}
       <section className="py-20 lg:py-28">
@@ -185,13 +259,54 @@ export function DemoPage() {
 
                     {isPrimary ? (
                       <div className="space-y-4">
-                        <Label className="font-medium">
+                        {/* NEW: Required contact fields */}
+                        <Label className="font-medium">Full Name *</Label>
+                        <Input
+                          type="text"
+                          value={fullName}
+                          onChange={(e) => setFullName(e.target.value)}
+                          placeholder="Your name"
+                          required
+                        />
+
+                        <Label className="font-medium">Email *</Label>
+                        <Input
+                          type="email"
+                          value={email}
+                          onChange={(e) => setEmail(e.target.value)}
+                          placeholder="you@company.com"
+                          required
+                        />
+
+                        <Label className="font-medium">Company</Label>
+                        <Input
+                          type="text"
+                          value={company}
+                          onChange={(e) => setCompany(e.target.value)}
+                          placeholder="Company name (optional)"
+                        />
+
+                        <Label className="font-medium mt-2">
+                          Select preferred date:
+                        </Label>
+                        <Input
+                          type="date"
+                          value={selectedDate}
+                          min={todayISO} // 🚫 prevents past dates
+                          onChange={(e) => setSelectedDate(e.target.value)}
+                        />
+                        <div className="text-xs text-muted-foreground">
+                          Your timezone: <b>{tz}</b>
+                        </div>
+
+                        <Label className="font-medium mt-4 block">
                           Select preferred time:
                         </Label>
                         <div className="grid grid-cols-2 gap-2">
                           {timeSlots.map((slot) => (
                             <button
                               key={slot}
+                              type="button"
                               onClick={() => setSelectedTime(slot)}
                               className={`p-3 text-sm rounded-lg border transition-colors ${
                                 selectedTime === slot
@@ -203,20 +318,21 @@ export function DemoPage() {
                             </button>
                           ))}
                         </div>
+
                         <Button
                           className="w-full"
                           size="lg"
-                          disabled={!selectedTime}
-                          onClick={() => setIsScheduled(true)}
+                          disabled={!canSubmit}
+                          onClick={scheduleDemo}
                         >
                           <Calendar className="mr-2 h-4 w-4" />
-                          Schedule Live Demo
+                          {loading ? "Scheduling..." : "Schedule Live Demo"}
                         </Button>
                       </div>
                     ) : (
                       <Button variant="outline" className="w-full" size="lg">
                         <Play className="mr-2 h-4 w-4" />
-                        Start Interactive Tour
+                        Start Interactive Tour COMING SOON
                       </Button>
                     )}
                   </CardContent>
