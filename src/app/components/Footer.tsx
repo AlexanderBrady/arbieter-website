@@ -26,7 +26,7 @@ export function Footer() {
       { name: "Technology", href: "/case-studies" },
     ],
     company: [
-      { name: "About Us", href: "#AboutPage" },
+      { name: "About Us", href: "#about" },
       { name: "Careers", href: "#contact" },
       { name: "Blog", href: "#blog" },
       { name: "Contact", href: "#contact" },

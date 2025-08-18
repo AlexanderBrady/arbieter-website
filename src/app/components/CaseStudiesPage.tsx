@@ -259,6 +259,26 @@ export function CaseStudiesPage() {
         </div>
       </section>
 
+      {/* Filter Section */}
+      <section className="py-12 bg-muted/30">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-wrap items-center justify-center gap-2">
+            <Filter className="h-4 w-4 text-muted-foreground mr-2" />
+            {filters.map((filter) => (
+              <Button
+                key={filter.id}
+                variant={selectedFilter === filter.id ? "default" : "outline"}
+                size="sm"
+                onClick={() => setSelectedFilter(filter.id)}
+                className="text-sm"
+              >
+                {filter.name}
+              </Button>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Case Studies Grid */}
       <section className="py-20 lg:py-28">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
