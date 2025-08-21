@@ -15,7 +15,7 @@ export function HeroSection() {
             </div>
 
             <h1 className="text-4xl lg:text-6xl font-bold tracking-tight mb-6">
-              Transforming Construction, Real Estate & Tech with{" "}
+              Transforming Industries with{" "}
               <span className="text-primary">AI Solutions</span>
             </h1>
 

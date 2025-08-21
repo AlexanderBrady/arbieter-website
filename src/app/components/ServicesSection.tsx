@@ -16,8 +16,7 @@ export function ServicesSection() {
       title: "AI Integrations",
       description:
         "Intelligent automation solutions that optimize workflows and decision-making processes across your business operations.",
-      image:
-        "https://images.unsplash.com/photo-1697577418970-95d99b5a55cf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhcnRpZmljaWFsJTIwaW50ZWxsaWdlbmNlJTIwdGVjaG5vbG9neXxlbnwxfHx8fDE3NTUwMDc4ODN8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      image: "/AI.avif",
       link: "#ai-integrations",
       features: [
         "Machine Learning Models",
@@ -31,8 +30,7 @@ export function ServicesSection() {
       title: "Case Studies",
       description:
         "Real-world examples of successful AI implementations and custom solutions across various industries.",
-      image:
-        "https://images.unsplash.com/photo-1557426272-fc759fdf7a8d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzb2Z0d2FyZSUyMGRldmVsb3BtZW50JTIwdGVhbXxlbnwxfHx8fDE3NTUwNjY5MzB8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      image: "/caseStudy1.png",
       link: "#case-studies",
       features: [
         "Proven Results",
