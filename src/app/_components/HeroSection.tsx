@@ -47,10 +47,10 @@ export function HeroSection() {
                 variant="outline"
                 size="lg"
                 className="text-base px-8"
-                onClick={() => router.push("/demo")}
+                onClick={() => router.push("/case-studies")}
               >
                 <Play className="mr-2 h-4 w-4" />
-                Watch Demo
+                See Projects
               </Button>
             </div>
 
