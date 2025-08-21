@@ -1,10 +1,10 @@
 import { Button } from "./ui/button";
-import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { ArrowRight, Play } from "lucide-react";
 import { useRouter } from "next/navigation";
+import NeuralBackdrop from "./NeuralBackdrop";
 
 export function HeroSection() {
-  const router = useRouter(); 
+  const router = useRouter();
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-background to-muted/20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
@@ -70,15 +70,10 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* Hero Image */}
+          {/* Hero Visual (replaced with neural canvas) */}
           <div className="relative lg:ml-8">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-              <ImageWithFallback
-                src="https://images.unsplash.com/photo-1678344647612-29de50226436?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBvZmZpY2UlMjBidWlsZGluZyUyMGNvbnN0cnVjdGlvbnxlbnwxfHx8fDE3NTUwMjM4OTN8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-                alt="Modern construction and technology"
-                className="w-full h-[500px] object-cover"
-              />
-              {/* Overlay gradient */}
+              <NeuralBackdrop className="w-full h-[500px]" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
             </div>
 
