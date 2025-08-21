@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "./ui/button";
-import { ArrowRight, Play } from "lucide-react";
+import { ArrowRight, Play, ChevronDown } from "lucide-react";
 import { useRouter } from "next/navigation";
 import NeuralBackdrop from "./NeuralBackdrop";
 
@@ -12,7 +12,6 @@ export function HeroSection() {
     <section className="relative overflow-hidden">
       {/* Full-section animated background */}
       <NeuralBackdrop className="absolute inset-0 w-full h-full -z-10 pointer-events-none" />
-      {/* Soft tint so text stays readable (tweak to taste) */}
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-background/60 to-muted/20" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
@@ -78,10 +77,8 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* Right column: keep badges; no inner image/card needed now */}
+          {/* Right column badges */}
           <div className="relative lg:ml-8 min-h-[300px]">
-            {/* You can add any foreground visuals here if you want, or leave empty */}
-            {/* Floating elements */}
             <div className="absolute -top-4 -right-4 bg-primary text-primary-foreground rounded-lg p-4 shadow-lg">
               <div className="text-sm font-medium">AI Powered</div>
               <div className="text-xs opacity-90">Solutions</div>
@@ -93,6 +90,11 @@ export function HeroSection() {
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Cool bouncing + flipping arrow */}
+      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2">
+        <ChevronDown className="h-10 w-10 text-primary animate-flip-bounce" />
       </div>
     </section>
   );
