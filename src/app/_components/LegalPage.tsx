@@ -4,10 +4,11 @@ import { useState, useEffect } from "react";
 import { Button } from "./ui/button";
 import { Badge } from "./ui/badge";
 import { ChevronUp, Shield, FileText, Cookie, Globe } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 export function LegalPage() {
   const [showBackToTop, setShowBackToTop] = useState(false);
-
+  const router = useRouter();
   useEffect(() => {
     const handleScroll = () => {
       setShowBackToTop(window.scrollY > 300);
@@ -446,7 +447,7 @@ export function LegalPage() {
               hesitate to contact us.
             </p>
             <Button
-              onClick={() => (window.location.hash = "contact")}
+              onClick={() => router.push("/contact")}
               className="hover:scale-105 transition-all duration-200"
             >
               Contact Us

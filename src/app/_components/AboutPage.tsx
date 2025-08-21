@@ -1,3 +1,5 @@
+"use client";
+import { useRouter } from "next/navigation";
 import {
   Card,
   CardContent,
@@ -23,6 +25,7 @@ import {
 } from "lucide-react";
 
 export function AboutPage() {
+  const router = useRouter();
   const approach = [
     {
       title: "Technical-First Methodology",
@@ -175,7 +178,7 @@ export function AboutPage() {
                 <Button
                   size="lg"
                   className="text-base px-8"
-                  onClick={() => (window.location.hash = "case-studies")}
+                  onClick={() => router.push("/case-studies")}
                 >
                   View Case Studies
                   <ArrowRight className="ml-2 h-4 w-4" />
@@ -184,7 +187,7 @@ export function AboutPage() {
                   variant="outline"
                   size="lg"
                   className="text-base px-8"
-                  onClick={() => (window.location.hash = "ai-integrations")}
+                  onClick={() => router.push("/ai-integrations")}
                 >
                   Explore AI Solutions
                 </Button>
@@ -383,7 +386,7 @@ export function AboutPage() {
               <Button
                 size="lg"
                 className="text-base px-12 py-6"
-                onClick={() => (window.location.hash = "contact")}
+                onClick={() => router.push("/contact")}
               >
                 Let&apos;s Build
                 <ArrowRight className="ml-2 h-5 w-5" />
@@ -392,7 +395,7 @@ export function AboutPage() {
                 variant="outline"
                 size="lg"
                 className="text-base px-8 py-6"
-                onClick={() => (window.location.hash = "case-studies")}
+                onClick={() => router.push("/case-studies")}
               >
                 View Our Work
               </Button>

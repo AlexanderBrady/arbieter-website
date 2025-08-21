@@ -22,12 +22,14 @@ import {
   Video,
   PhoneCall,
 } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 export function DemoPage() {
   const [isScheduled, setIsScheduled] = useState(false);
   const [selectedTime, setSelectedTime] = useState("");
   const [selectedDate, setSelectedDate] = useState(""); // YYYY-MM-DD
   const [loading, setLoading] = useState(false);
+  const router = useRouter();
 
   // NEW: contact fields
   const [fullName, setFullName] = useState("");
@@ -155,7 +157,7 @@ export function DemoPage() {
                 <Button
                   size="lg"
                   className="text-base px-8"
-                  onClick={() => (window.location.hash = "contact")}
+                  onClick={() => router.push("/contact")}
                 >
                   Contact Us
                   <ArrowRight className="ml-2 h-4 w-4" />
@@ -164,7 +166,7 @@ export function DemoPage() {
                   variant="outline"
                   size="lg"
                   className="text-base px-8"
-                  onClick={() => (window.location.hash = "#")}
+                  onClick={() => router.push("/")}
                 >
                   Back to Home
                 </Button>
@@ -412,7 +414,7 @@ export function DemoPage() {
               <Button
                 size="lg"
                 className="text-base px-8"
-                onClick={() => (window.location.hash = "contact")}
+                onClick={() => router.push("/contact")}
               >
                 Get Started Today
                 <ArrowRight className="ml-2 h-4 w-4" />
@@ -421,7 +423,7 @@ export function DemoPage() {
                 variant="outline"
                 size="lg"
                 className="text-base px-8"
-                onClick={() => (window.location.hash = "case-studies")}
+                onClick={() => router.push("/case-studies")}
               >
                 View Case Studies
               </Button>

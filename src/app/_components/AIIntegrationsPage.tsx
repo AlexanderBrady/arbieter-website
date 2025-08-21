@@ -1,3 +1,4 @@
+"use client";
 import {
   Card,
   CardContent,
@@ -23,171 +24,174 @@ import {
   BarChart3,
   FileText,
 } from "lucide-react";
+import { useRouter } from "next/navigation";
+
+const solutions = [
+  {
+    icon: MessageCircle,
+    title: "Lead-Chasing Chatbots",
+    description:
+      "AI chat agents that instantly engage with hot leads, answer questions, and book calls or viewings without human delay.",
+    features: [
+      "Instant lead response (< 30 seconds)",
+      "Automated appointment scheduling",
+      "Qualification questionnaires",
+      "CRM integration and lead scoring",
+    ],
+    benefits: [
+      "80% faster lead response time",
+      "45% increase in qualified leads",
+      "24/7 availability",
+    ],
+    useCases: [
+      "Real estate property inquiries",
+      "Construction project consultations",
+      "Service bookings and quotes",
+    ],
+  },
+  {
+    icon: Users,
+    title: "Internal Copilots",
+    description:
+      "AI assistants that help your team process data, draft reports, and manage workflows with intelligent automation.",
+    features: [
+      "Document analysis and summarization",
+      "Report generation and formatting",
+      "Data processing and insights",
+      "Workflow automation and reminders",
+    ],
+    benefits: [
+      "60% reduction in admin time",
+      "Consistent report quality",
+      "Error reduction in data processing",
+    ],
+    useCases: [
+      "Project status reports",
+      "Financial analysis summaries",
+      "Compliance documentation",
+    ],
+  },
+  {
+    icon: Wrench,
+    title: "Industry-Specific Tools",
+    description:
+      "Tailored AI solutions for construction, real estate, and service businesses to reduce admin and speed up decision-making.",
+    features: [
+      "Custom AI models for your industry",
+      "Specialized workflows and processes",
+      "Industry compliance integration",
+      "Predictive analytics and forecasting",
+    ],
+    benefits: [
+      "Domain-specific accuracy",
+      "Regulatory compliance built-in",
+      "Faster decision making",
+    ],
+    useCases: [
+      "Construction safety monitoring",
+      "Property valuation automation",
+      "Resource allocation optimization",
+    ],
+  },
+  {
+    icon: Database,
+    title: "Data Integrations",
+    description:
+      "AI systems that connect seamlessly with your CRM, ERP, and other business tools for unified intelligent operations.",
+    features: [
+      "Multi-platform data synchronization",
+      "Real-time analytics and dashboards",
+      "Automated data cleansing",
+      "Custom API development",
+    ],
+    benefits: [
+      "Single source of truth",
+      "Real-time business insights",
+      "Eliminated data silos",
+    ],
+    useCases: [
+      "CRM and project management sync",
+      "Financial and operational reporting",
+      "Customer journey tracking",
+    ],
+  },
+];
+
+const buildProcess = [
+  {
+    step: "01",
+    title: "Problem Analysis",
+    description:
+      "We start by deeply understanding your specific business challenges and workflow pain points.",
+    icon: Target,
+  },
+  {
+    step: "02",
+    title: "Technical Design",
+    description:
+      "Our engineers design AI solutions grounded in proven algorithms and your existing tech stack.",
+    icon: Brain,
+  },
+  {
+    step: "03",
+    title: "Rapid Prototyping",
+    description:
+      "We build working prototypes quickly to validate concepts before full development.",
+    icon: Zap,
+  },
+  {
+    step: "04",
+    title: "Integration & Testing",
+    description:
+      "Seamless integration with your existing systems followed by rigorous testing and optimization.",
+    icon: Settings,
+  },
+  {
+    step: "05",
+    title: "Deployment & Support",
+    description:
+      "We deploy your AI system and provide ongoing monitoring, updates, and technical support.",
+    icon: CheckCircle,
+  },
+];
+
+const realWorldExamples = [
+  {
+    title: "Construction Lead Bot",
+    industry: "Construction",
+    result: "300% increase in qualified leads",
+    description:
+      "AI chatbot that qualifies construction leads and books site consultations automatically.",
+    icon: MessageCircle,
+  },
+  {
+    title: "Property Analysis Copilot",
+    industry: "Real Estate",
+    result: "70% faster property reports",
+    description:
+      "Internal AI that analyzes market data and generates comprehensive property investment reports.",
+    icon: FileText,
+  },
+  {
+    title: "Hotel Operations AI",
+    industry: "Hospitality",
+    result: "50% admin time savings",
+    description:
+      "Industry-specific tool that automates guest services and optimizes housekeeping schedules.",
+    icon: Wrench,
+  },
+  {
+    title: "Multi-System Dashboard",
+    industry: "Technology",
+    result: "Unified data across 5 platforms",
+    description:
+      "Data integration connecting CRM, project management, and financial systems in real-time.",
+    icon: Database,
+  },
+];
 
 export function AIIntegrationsPage() {
-  const solutions = [
-    {
-      icon: MessageCircle,
-      title: "Lead-Chasing Chatbots",
-      description:
-        "AI chat agents that instantly engage with hot leads, answer questions, and book calls or viewings without human delay.",
-      features: [
-        "Instant lead response (< 30 seconds)",
-        "Automated appointment scheduling",
-        "Qualification questionnaires",
-        "CRM integration and lead scoring",
-      ],
-      benefits: [
-        "80% faster lead response time",
-        "45% increase in qualified leads",
-        "24/7 availability",
-      ],
-      useCases: [
-        "Real estate property inquiries",
-        "Construction project consultations",
-        "Service bookings and quotes",
-      ],
-    },
-    {
-      icon: Users,
-      title: "Internal Copilots",
-      description:
-        "AI assistants that help your team process data, draft reports, and manage workflows with intelligent automation.",
-      features: [
-        "Document analysis and summarization",
-        "Report generation and formatting",
-        "Data processing and insights",
-        "Workflow automation and reminders",
-      ],
-      benefits: [
-        "60% reduction in admin time",
-        "Consistent report quality",
-        "Error reduction in data processing",
-      ],
-      useCases: [
-        "Project status reports",
-        "Financial analysis summaries",
-        "Compliance documentation",
-      ],
-    },
-    {
-      icon: Wrench,
-      title: "Industry-Specific Tools",
-      description:
-        "Tailored AI solutions for construction, real estate, and service businesses to reduce admin and speed up decision-making.",
-      features: [
-        "Custom AI models for your industry",
-        "Specialized workflows and processes",
-        "Industry compliance integration",
-        "Predictive analytics and forecasting",
-      ],
-      benefits: [
-        "Domain-specific accuracy",
-        "Regulatory compliance built-in",
-        "Faster decision making",
-      ],
-      useCases: [
-        "Construction safety monitoring",
-        "Property valuation automation",
-        "Resource allocation optimization",
-      ],
-    },
-    {
-      icon: Database,
-      title: "Data Integrations",
-      description:
-        "AI systems that connect seamlessly with your CRM, ERP, and other business tools for unified intelligent operations.",
-      features: [
-        "Multi-platform data synchronization",
-        "Real-time analytics and dashboards",
-        "Automated data cleansing",
-        "Custom API development",
-      ],
-      benefits: [
-        "Single source of truth",
-        "Real-time business insights",
-        "Eliminated data silos",
-      ],
-      useCases: [
-        "CRM and project management sync",
-        "Financial and operational reporting",
-        "Customer journey tracking",
-      ],
-    },
-  ];
-
-  const buildProcess = [
-    {
-      step: "01",
-      title: "Problem Analysis",
-      description:
-        "We start by deeply understanding your specific business challenges and workflow pain points.",
-      icon: Target,
-    },
-    {
-      step: "02",
-      title: "Technical Design",
-      description:
-        "Our engineers design AI solutions grounded in proven algorithms and your existing tech stack.",
-      icon: Brain,
-    },
-    {
-      step: "03",
-      title: "Rapid Prototyping",
-      description:
-        "We build working prototypes quickly to validate concepts before full development.",
-      icon: Zap,
-    },
-    {
-      step: "04",
-      title: "Integration & Testing",
-      description:
-        "Seamless integration with your existing systems followed by rigorous testing and optimization.",
-      icon: Settings,
-    },
-    {
-      step: "05",
-      title: "Deployment & Support",
-      description:
-        "We deploy your AI system and provide ongoing monitoring, updates, and technical support.",
-      icon: CheckCircle,
-    },
-  ];
-
-  const realWorldExamples = [
-    {
-      title: "Construction Lead Bot",
-      industry: "Construction",
-      result: "300% increase in qualified leads",
-      description:
-        "AI chatbot that qualifies construction leads and books site consultations automatically.",
-      icon: MessageCircle,
-    },
-    {
-      title: "Property Analysis Copilot",
-      industry: "Real Estate",
-      result: "70% faster property reports",
-      description:
-        "Internal AI that analyzes market data and generates comprehensive property investment reports.",
-      icon: FileText,
-    },
-    {
-      title: "Hotel Operations AI",
-      industry: "Hospitality",
-      result: "50% admin time savings",
-      description:
-        "Industry-specific tool that automates guest services and optimizes housekeeping schedules.",
-      icon: Wrench,
-    },
-    {
-      title: "Multi-System Dashboard",
-      industry: "Technology",
-      result: "Unified data across 5 platforms",
-      description:
-        "Data integration connecting CRM, project management, and financial systems in real-time.",
-      icon: Database,
-    },
-  ];
+  const router = useRouter();
 
   return (
     <div className="min-h-screen bg-background">
@@ -211,7 +215,7 @@ export function AIIntegrationsPage() {
                 <Button
                   size="lg"
                   className="text-base px-8 hover:scale-105 transition-all duration-200"
-                  onClick={() => (window.location.hash = "contact")}
+                  onClick={() => router.push("/contact")}
                 >
                   Let&rsquo;s Build Your AI System
                   <ArrowRight className="ml-2 h-4 w-4" />
@@ -221,7 +225,7 @@ export function AIIntegrationsPage() {
                   variant="outline"
                   size="lg"
                   className="text-base px-8 hover:scale-105 hover:border-primary hover:text-primary transition-all duration-200"
-                  onClick={() => (window.location.hash = "consulting")}
+                  onClick={() => router.push("/consulting")}
                 >
                   Learn About AI Consulting
                 </Button>
@@ -481,7 +485,7 @@ export function AIIntegrationsPage() {
               <Button
                 size="lg"
                 className="text-base px-12 py-6"
-                onClick={() => (window.location.hash = "contact")}
+                onClick={() => router.push("/contact")}
               >
                 Start Your AI Project
                 <ArrowRight className="ml-2 h-5 w-5" />
@@ -490,7 +494,7 @@ export function AIIntegrationsPage() {
                 variant="outline"
                 size="lg"
                 className="text-base px-8 py-6"
-                onClick={() => (window.location.hash = "demo")}
+                onClick={() => router.push("/demo")}
               >
                 Schedule Technical Discussion
               </Button>

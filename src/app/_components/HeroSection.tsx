@@ -1,8 +1,10 @@
 import { Button } from "./ui/button";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { ArrowRight, Play } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 export function HeroSection() {
+  const router = useRouter(); 
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-background to-muted/20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
@@ -29,7 +31,7 @@ export function HeroSection() {
               <Button
                 size="lg"
                 className="text-base px-8"
-                onClick={() => (window.location.hash = "contact")}
+                onClick={() => router.push("/contact")}
               >
                 Get Started Today
                 <ArrowRight className="ml-2 h-4 w-4" />
@@ -38,7 +40,7 @@ export function HeroSection() {
                 variant="outline"
                 size="lg"
                 className="text-base px-8"
-                onClick={() => (window.location.hash = "demo")}
+                onClick={() => router.push("/demo")}
               >
                 <Play className="mr-2 h-4 w-4" />
                 Watch Demo

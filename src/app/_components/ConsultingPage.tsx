@@ -1,3 +1,4 @@
+"use client";
 import {
   Card,
   CardContent,
@@ -22,8 +23,10 @@ import {
   Users,
   Lightbulb,
 } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 export function ConsultingPage() {
+  const router = useRouter();
   const consultingProcess = [
     {
       step: "01",
@@ -141,7 +144,7 @@ export function ConsultingPage() {
                 <Button
                   size="lg"
                   className="text-base px-8 hover:scale-105 transition-all duration-200"
-                  onClick={() => (window.location.hash = "contact")}
+                  onClick={() => router.push("/contact")}
                 >
                   Book a Consultation
                   <ArrowRight className="ml-2 h-4 w-4" />
@@ -150,7 +153,7 @@ export function ConsultingPage() {
                   variant="outline"
                   size="lg"
                   className="text-base px-8 hover:scale-105 transition-all duration-200"
-                  onClick={() => (window.location.hash = "case-studies")}
+                  onClick={() => router.push("/case-studies")}
                 >
                   View Success Stories
                 </Button>
@@ -342,7 +345,7 @@ export function ConsultingPage() {
               <Button
                 size="lg"
                 className="text-base px-12 py-6 hover:scale-105 transition-all duration-200"
-                onClick={() => (window.location.hash = "contact")}
+                onClick={() => router.push("/contact")}
               >
                 Book a Consultation
                 <ArrowRight className="ml-2 h-5 w-5" />
@@ -351,7 +354,7 @@ export function ConsultingPage() {
                 variant="outline"
                 size="lg"
                 className="text-base px-8 py-6 hover:scale-105 transition-all duration-200"
-                onClick={() => (window.location.hash = "demo")}
+                onClick={() => router.push("/demo")}
               >
                 Watch Demo
               </Button>

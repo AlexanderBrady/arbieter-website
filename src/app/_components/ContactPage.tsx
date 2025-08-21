@@ -31,8 +31,10 @@ import {
   Copy,
   Check,
 } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 export function ContactPage() {
+  const router = useRouter();
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -179,7 +181,7 @@ export function ContactPage() {
                   variant="outline"
                   size="lg"
                   className="text-base px-8"
-                  onClick={() => (window.location.hash = "")}
+                  onClick={() => router.push("/")}
                 >
                   Back to Home
                 </Button>
@@ -473,7 +475,7 @@ export function ContactPage() {
                       variant="ghost"
                       size="lg"
                       className="text-base"
-                      onClick={() => (window.location.hash = "demo")}
+                      onClick={() => router.push("/demo")}
                     >
                       Book a Demo
                     </Button>
@@ -570,13 +572,13 @@ export function ContactPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
                 variant="outline"
-                onClick={() => (window.location.hash = "case-studies")}
+                onClick={() => router.push("/case-studies")}
               >
                 See Case Studies
               </Button>
               <Button
                 variant="outline"
-                onClick={() => (window.location.hash = "ai-integrations")}
+                onClick={() => router.push("/ai-integrations")}
               >
                 Explore AI Solutions
               </Button>
