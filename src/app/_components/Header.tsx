@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 import { Button } from "./ui/button";
 import { Menu, X } from "lucide-react";
@@ -6,8 +9,7 @@ import { Menu, X } from "lucide-react";
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const handleNavigation = (path: string) => {
-    window.location.hash = path;
+  const closeMenu = () => {
     setIsMenuOpen(false); // Close mobile menu after navigation
   };
 
@@ -17,8 +19,8 @@ export function Header() {
         <div className="flex h-16 items-center justify-between">
           {/* Logo: Jera icon + wordmark */}
           <div className="flex items-center">
-            <button
-              onClick={() => handleNavigation("")}
+            <Link
+              href="/"
               className="group flex items-center gap-2 text-xl font-semibold text-primary hover:opacity-80 hover:scale-105 transition-all duration-200"
               aria-label="Go to home"
             >
@@ -31,46 +33,46 @@ export function Header() {
                 priority
               />
               <span className="leading-none">Arbieter</span>
-            </button>
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <button
-              onClick={() => handleNavigation("")}
+            <Link
+              href="/"
               className="text-sm transition-all duration-200 hover:text-primary hover:-translate-y-0.5 relative group"
             >
               Home
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-200 group-hover:w-full"></span>
-            </button>
-            <button
-              onClick={() => handleNavigation("about")}
+            </Link>
+            <Link
+              href="/about"
               className="text-sm transition-all duration-200 hover:text-primary hover:-translate-y-0.5 relative group"
             >
               About
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-200 group-hover:w-full"></span>
-            </button>
-            <button
-              onClick={() => handleNavigation("ai-integrations")}
+            </Link>
+            <Link
+              href="/ai-integrations"
               className="text-sm transition-all duration-200 hover:text-primary hover:-translate-y-0.5 relative group"
             >
               AI Solutions
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-200 group-hover:w-full"></span>
-            </button>
-            <button
-              onClick={() => handleNavigation("case-studies")}
+            </Link>
+            <Link
+              href="/case-studies"
               className="text-sm transition-all duration-200 hover:text-primary hover:-translate-y-0.5 relative group"
             >
               Case Studies
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-200 group-hover:w-full"></span>
-            </button>
-            <button
-              onClick={() => handleNavigation("contact")}
+            </Link>
+            <Link
+              href="/contact"
               className="text-sm transition-all duration-200 hover:text-primary hover:-translate-y-0.5 relative group"
             >
               Contact
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-200 group-hover:w-full"></span>
-            </button>
+            </Link>
           </nav>
 
           {/* CTA Button */}
@@ -78,17 +80,17 @@ export function Header() {
             <Button
               variant="outline"
               size="sm"
-              onClick={() => handleNavigation("contact")}
+              asChild
               className="hover:scale-105 hover:border-primary hover:text-primary transition-all duration-200"
             >
-              Get Quote
+              <Link href="/contact">Get Quote</Link>
             </Button>
             <Button
               size="sm"
-              onClick={() => handleNavigation("demo")}
+              asChild
               className="hover:scale-105 hover:shadow-lg transition-all duration-200"
             >
-              Book Demo
+              <Link href="/demo">Book Demo</Link>
             </Button>
           </div>
 
@@ -112,51 +114,56 @@ export function Header() {
         {isMenuOpen && (
           <div className="md:hidden border-t">
             <div className="px-2 pt-2 pb-3 space-y-1">
-              <button
-                onClick={() => handleNavigation("")}
+              <Link
+                href="/"
+                onClick={closeMenu}
                 className="block w-full text-left px-3 py-2 text-sm transition-colors hover:text-primary"
               >
                 Home
-              </button>
-              <button
-                onClick={() => handleNavigation("about")}
+              </Link>
+              <Link
+                href="/about"
+                onClick={closeMenu}
                 className="block w-full text-left px-3 py-2 text-sm transition-colors hover:text-primary"
               >
                 About
-              </button>
-              <button
-                onClick={() => handleNavigation("ai-integrations")}
+              </Link>
+              <Link
+                href="/ai-integrations"
+                onClick={closeMenu}
                 className="block w-full text-left px-3 py-2 text-sm transition-colors hover:text-primary"
               >
                 AI Solutions
-              </button>
-              <button
-                onClick={() => handleNavigation("case-studies")}
+              </Link>
+              <Link
+                href="/case-studies"
+                onClick={closeMenu}
                 className="block w-full text-left px-3 py-2 text-sm transition-colors hover:text-primary"
               >
                 Case Studies
-              </button>
-              <button
-                onClick={() => handleNavigation("contact")}
+              </Link>
+              <Link
+                href="/contact"
+                onClick={closeMenu}
                 className="block w-full text-left px-3 py-2 text-sm transition-colors hover:text-primary"
               >
                 Contact
-              </button>
+              </Link>
               <div className="px-3 py-2 space-y-2">
                 <Button
                   variant="outline"
                   size="sm"
                   className="w-full"
-                  onClick={() => handleNavigation("contact")}
+                  asChild
                 >
-                  Get Quote
+                  <Link href="/contact" onClick={closeMenu}>Get Quote</Link>
                 </Button>
                 <Button
                   size="sm"
                   className="w-full"
-                  onClick={() => handleNavigation("demo")}
+                  asChild
                 >
-                  Book Demo
+                  <Link href="/demo" onClick={closeMenu}>Book Demo</Link>
                 </Button>
               </div>
             </div>

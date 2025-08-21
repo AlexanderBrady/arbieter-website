@@ -1,4 +1,7 @@
+"use client";
+
 import { useState } from "react";
+import Link from "next/link";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Separator } from "./ui/separator";
@@ -15,10 +18,10 @@ import {
 export function Footer() {
   const navigation = {
     services: [
-      { name: "AI Integrations", href: "#ai-integrations" },
-      { name: "Case Studies", href: "#case-studies" },
-      { name: "Consulting", href: "#consulting" },
-      { name: "Support", href: "#contact" },
+      { name: "AI Integrations", href: "/ai-integrations" },
+      { name: "Case Studies", href: "/case-studies" },
+      { name: "Consulting", href: "/consulting" },
+      { name: "Support", href: "/contact" },
     ],
     industries: [
       { name: "E-commerce", href: "/case-studies" },
@@ -27,16 +30,16 @@ export function Footer() {
       { name: "Technology", href: "/case-studies" },
     ],
     company: [
-      { name: "About Us", href: "#about" },
-      { name: "Careers", href: "#contact" },
-      { name: "Blog", href: "#blog" },
-      { name: "Contact", href: "#contact" },
+      { name: "About Us", href: "/about" },
+      { name: "Careers", href: "/contact" },
+      { name: "Blog", href: "/blog" },
+      { name: "Contact", href: "/contact" },
     ],
     legal: [
-      { name: "Privacy Policy", href: "#legal" },
-      { name: "Terms of Service", href: "#legal" },
-      { name: "Cookie Policy", href: "#legal" },
-      { name: "GDPR", href: "#legal" },
+      { name: "Privacy Policy", href: "/legal" },
+      { name: "Terms of Service", href: "/legal" },
+      { name: "Cookie Policy", href: "/legal" },
+      { name: "GDPR", href: "/legal" },
     ],
   };
 
@@ -187,12 +190,12 @@ export function Footer() {
             <ul className="space-y-3">
               {navigation.services.map((item) => (
                 <li key={item.name}>
-                  <a
+                  <Link
                     href={item.href}
                     className="text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors"
                   >
                     {item.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -204,12 +207,12 @@ export function Footer() {
             <ul className="space-y-3">
               {navigation.industries.map((item) => (
                 <li key={item.name}>
-                  <a
+                  <Link
                     href={item.href}
                     className="text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors"
                   >
                     {item.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -221,12 +224,12 @@ export function Footer() {
             <ul className="space-y-3">
               {navigation.company.map((item) => (
                 <li key={item.name}>
-                  <a
+                  <Link
                     href={item.href}
                     className="text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors"
                   >
                     {item.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -238,12 +241,12 @@ export function Footer() {
             <ul className="space-y-3">
               {navigation.legal.map((item) => (
                 <li key={item.name}>
-                  <a
+                  <Link
                     href={item.href}
                     className="text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors"
                   >
                     {item.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

@@ -1,4 +1,6 @@
 import "./globals.css"; // ⬅️ Import your Tailwind & theme styles
+import { Header } from "@/app/_components/Header";
+import { Footer } from "@/app/_components/Footer";
 
 export const metadata = {
   title: "Arbieter",
@@ -12,7 +14,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-background text-foreground">{children}</body>
+      <body className="min-h-screen bg-background text-foreground">
+        <Header />
+        <main>{children}</main>
+        <Footer />
+      </body>
     </html>
   );
 }
