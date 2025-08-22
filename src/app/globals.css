@@ -181,7 +181,50 @@
   }
 }
 
-/* Custom animations */
+@keyframes flip-bounce {
+  /* Start + idle */
+  0%,
+  10% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  /* Small bounce #1 */
+  20% {
+    transform: translateY(-10px) rotate(0deg);
+  }
+  30% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  /* Small bounce #2 */
+  40% {
+    transform: translateY(-10px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  /* Big flip jump */
+  65% {
+    transform: translateY(-60px) rotate(180deg); /* high arc + upside down */
+  }
+
+  /* Land + finish rotation */
+  80% {
+    transform: translateY(0) rotate(360deg);
+  }
+
+  /* Rest */
+  100% {
+    transform: translateY(0) rotate(360deg);
+  }
+}
+
+.animate-flip-bounce {
+  animation: flip-bounce 6s infinite ease-in-out;
+  will-change: transform;
+}
+
 @keyframes pop-blob {
   0% { transform: scale(1); }
   33% { transform: scale(1.2); }

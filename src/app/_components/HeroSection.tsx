@@ -1,9 +1,12 @@
+"use client";
+
 import { Button } from "./ui/button";
-import { ImageWithFallback } from "./figma/ImageWithFallback";
-import { ArrowRight, Play, Zap, Shield, Clock, Cpu, Globe, Rocket } from "lucide-react";
+import { ArrowRight, Play, Zap, Shield, Clock, Cpu, Globe, Rocket, ChevronDown } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { motion } from "motion/react";
 import GradientBg from "./GradientBg";
+import NeuralBackdrop from "./NeuralBackdrop";
+import { ImageWithFallback } from "./figma/ImageWithFallback";
 
 // Feature tabs data
 const featureTabs = [
@@ -174,9 +177,14 @@ function FloatingFeatureTabs() {
 }
 
 export function HeroSection() {
-  const router = useRouter(); 
+  const router = useRouter();
+
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-background to-muted/20">
+    <section className="relative overflow-hidden">
+      {/* Full-section animated background */}
+      <NeuralBackdrop className="absolute inset-0 w-full h-full -z-10 pointer-events-none" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-background/60 to-muted/20" />
+
       {/* Gradient Background Element */}
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28 z-[10] relative">
@@ -184,7 +192,7 @@ export function HeroSection() {
           {/* Hero Content */}
           <div className="max-w-2xl">
             <div className="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 text-primary text-sm mb-6">
-              <span className="w-2 h-2 bg-primary rounded-full mr-2"></span>
+              <span className="w-2 h-2 bg-primary rounded-full mr-2" />
               Trusted by industry leaders
             </div>
 
@@ -212,10 +220,10 @@ export function HeroSection() {
                 variant="outline"
                 size="lg"
                 className="text-base px-8"
-                onClick={() => router.push("/demo")}
+                onClick={() => router.push("/case-studies")}
               >
                 <Play className="mr-2 h-4 w-4" />
-                Watch Demo
+                See Projects
               </Button>
             </div>
 
