@@ -159,8 +159,12 @@
   }
 
   .clip-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#4285F1] via-[#FF6C6D] to-[#FFB565] ;
+    @apply bg-clip-text bg-gradient-to-r from-[#4285F1] via-[#FF6C6D] to-[#FFB565] text-transparent filter-[url(#inset-shadow)] ;
   } 
+
+  .inset-shadow {
+    @apply bg-[linear-gradient(183deg,rgba(236,241,253,0)_13.9%,rgba(236,241,253,0.3)_121.71%),linear-gradient(0deg,#2E3038,#2E3038)] bg-clip-text leading-tight text-transparent filter-[url(#inset-shadow)]
+  }
 }
 
 /* Simple sensible defaults for headings & text */

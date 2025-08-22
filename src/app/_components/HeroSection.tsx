@@ -79,10 +79,6 @@ function FloatingFeatureTabs() {
               <motion.div
                 key={`track1-${feature.id}`}
                 className={`${feature.color} rounded-lg p-3 pointer-events-auto cursor-pointer flex-shrink-0 backdrop-blur-md shadow-lg text-primary-foreground `}
-                whileHover={{
-                  scale: 1.1,
-                  zIndex: 10,
-                }}
                 initial={{
                   opacity: 0,
                   y: 20,
@@ -111,6 +107,7 @@ function FloatingFeatureTabs() {
         {/* Second marquee track (duplicate) - starts where first ends */}
         <motion.div
           className="flex items-center gap-6 h-full flex-shrink-0 ml-6"
+          
           animate={{
             x: ["0%", "-100%"]
           }}
@@ -124,7 +121,7 @@ function FloatingFeatureTabs() {
             const Icon = feature.icon;
             
             return (
-              <div
+              <motion.div
                 key={`track2-${feature.id}`}
                 className={`${feature.color} rounded-lg p-3 pointer-events-auto cursor-pointer flex-shrink-0 backdrop-blur-md shadow-sm text-primary-foreground `}
               >
@@ -135,7 +132,7 @@ function FloatingFeatureTabs() {
                     <div className="text-xs opacity-90">{feature.subtitle}</div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </motion.div>
@@ -182,7 +179,7 @@ export function HeroSection() {
   return (
     <section className="relative overflow-hidden">
       {/* Full-section animated background */}
-      <NeuralBackdrop className="absolute inset-0 w-full h-full -z-10 pointer-events-none" />
+      {/* <NeuralBackdrop className="absolute inset-0 w-full h-full -z-10 pointer-events-none" /> */}
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-background/60 to-muted/20" />
 
       {/* Gradient Background Element */}
@@ -192,14 +189,21 @@ export function HeroSection() {
           {/* Hero Content */}
           <div className="max-w-2xl">
             <div className="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 text-primary text-sm mb-6">
-              <span className="w-2 h-2 bg-primary rounded-full mr-2" />
+
+            <div className="relative mr-4">
+              <div className="w-2 h-2 rounded-full bg-indigo-400"></div>
+              <div className="absolute top-0 right-0 -mr-1 -mt-1 w-4 h-4 rounded-full bg-indigo-400 animate-ping"></div>
+            </div>
+
               Trusted by industry leaders
             </div>
 
-            <h1 className="text-4xl lg:text-6xl font-bold tracking-tight mb-6">
-              Transforming Industries with{" "}
-              <span className="text-primary">AI Solutions</span>
+            <h1 className="text-[55px] md:text-[75px] tracking-tight mb-6 inset-shadow">
+              <span className="whitespace-nowrap">Transforming</span>{" "}
+              <span className="whitespace-nowrap">Industries with</span>{" "}
+              <span className="clip-gradient">AI Solutions</span>
             </h1>
+            {/* <h1 className="relative z-10 flex flex-col bg-[linear-gradient(183deg,rgba(236,241,253,0)_13.9%,rgba(236,241,253,0.3)_121.71%),linear-gradient(0deg,#2E3038,#2E3038)] bg-clip-text font-forma text-[49px] leading-tight text-transparent filter-[url(#inset-shadow)] md:text-[80px] lg:text-[96px] xl:text-[96px]"><span className="whitespace-nowrap">It's like Googling</span><span className="whitespace-nowrap -mt-2 md:-mt-2.5 lg:-mt-3.5">Mid-Sentence</span></h1> */}
 
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
               We deliver cutting-edge AI integrations and custom development

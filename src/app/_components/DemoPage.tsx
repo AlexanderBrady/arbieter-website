@@ -236,7 +236,7 @@ export function DemoPage() {
                       />
                     </div>
                     <div className="flex items-center justify-between">
-                      <CardTitle className="text-xl">{option.title}</CardTitle>
+                      <CardTitle className="text-xl">{option.title}</CardTitle> 
                       <Badge 
                         variant={isPrimary ? "secondary" : "secondary"}
                         className={isPrimary ? "bg-black/20 text-white border-white/30 backdrop-blur-md" : ""}

@@ -88,7 +88,7 @@ export function ServicesSection() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl lg:text-5xl font-bold mb-6">
+          <h2 className="text-3xl lg:text-6xl mb-6 inset-shadow">
             Solutions That Drive Results
           </h2>
           <p className="text-lg text-muted-foreground">
@@ -173,9 +173,9 @@ export function ServicesSection() {
 
         {/* Industries We Serve */}
         <div className="text-center mb-12">
-          <h3 className="text-2xl lg:text-3xl font-bold mb-4">
+          <h1 className="text-3xl lg:text-6xl mb-4 inset-shadow">
             Industries We Serve
-          </h3>
+          </h1>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             Specialized expertise across key sectors with deep understanding of
             industry challenges and opportunities.

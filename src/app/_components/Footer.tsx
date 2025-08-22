@@ -88,7 +88,8 @@ export function Footer() {
   }
 
   return (
-    <footer className="bg-primary text-primary-foreground relative overflow-hidden">
+    <footer className="bg-primary text-primary-foreground relative overflow-hidden ">
+      <div className="relative z-10">
       {/* Newsletter Section */}
       <div className="border-b border-primary-foreground/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -275,10 +276,11 @@ export function Footer() {
           </div>
         </div>
       </div>
+      </div>
       <Image
         src="/inward-logo.png"
         alt="AI-powered robot with advanced capabilities"
-        className="max-md:scale-[70%] absolute bottom-0 md:right-0 right-[-60px] opacity-50"
+        className="max-md:scale-[70%] absolute bottom-0 md:right-0 right-[-60px] opacity-50 z-0"
         width={300}
         height={300}
       />
