@@ -10,8 +10,11 @@ import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { Bot, Code, Building2, ArrowRight, Users, Wrench } from "lucide-react";
 import Image from "next/image";
 import { motion } from "motion/react";
+import { useRouter } from "next/navigation";
 
 export function ServicesSection() {
+  const router = useRouter();
+  
   const services = [
     {
       icon: Bot,
@@ -19,7 +22,7 @@ export function ServicesSection() {
       description:
         "Intelligent automation solutions that optimize workflows and decision-making processes across your business operations.",
       image: "/AI.avif",
-      link: "#ai-integrations",
+      link: "/ai-integrations",
       features: [
         "Machine Learning Models",
         "Predictive Analytics",
@@ -33,7 +36,7 @@ export function ServicesSection() {
       description:
         "Real-world examples of successful AI implementations and custom solutions across various industries.",
       image: "/caseStudy1.png",
-      link: "#case-studies",
+      link: "/case-studies",
       features: [
         "Proven Results",
         "ROI Examples",
@@ -48,7 +51,7 @@ export function ServicesSection() {
         "Strategic AI consulting to identify opportunities, map solutions, and create implementation roadmaps for your business.",
       image:
         "https://images.unsplash.com/photo-1512758017271-d7b84c2113f1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzdHJhdGVnaWMlMjBwbGFubmluZyUyMHdvcmtzaG9wJTIwcHJvZmVzc2lvbmFsfGVufDF8fHx8MTc1NTEwNTg2NHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-      link: "#consulting",
+      link: "/consulting",
       features: [
         "Discovery Sessions",
         "Solution Mapping",
@@ -107,7 +110,7 @@ export function ServicesSection() {
                 key={index}
                 className="overflow-hidden group hover:shadow-lg transition-shadow"
               >
-                <div className="relative h-48 overflow-hidden">
+                <div className="relative min-h-48 overflow-hidden">
                   <ImageWithFallback
                     src={service.image}
                     alt={
@@ -130,7 +133,7 @@ export function ServicesSection() {
                     {service.description}
                   </CardDescription>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="flex flex-col justify-between h-full">
                   <ul className="space-y-2 mb-6">
                     {service.features.map((feature, featureIndex) => (
                       <li
@@ -147,9 +150,7 @@ export function ServicesSection() {
                       <Button
                         variant="outline"
                         className="w-full group hover:scale-105 transition-all duration-200"
-                        onClick={() =>
-                          (window.location.hash = service.link.replace("#", ""))
-                        }
+                        onClick={() => router.push(service.link)}
                       >
                         Learn More
                         <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
@@ -158,7 +159,7 @@ export function ServicesSection() {
                     {service.isConsulting && (
                       <Button
                         className="w-full hover:scale-105 transition-all duration-200"
-                        onClick={() => (window.location.hash = "consulting")}
+                        onClick={() => router.push("/consulting")}
                       >
                         Learn About AI Consulting
                         <ArrowRight className="ml-2 h-4 w-4" />
@@ -196,11 +197,11 @@ export function ServicesSection() {
                 className="text-center p-6 hover:shadow-md transition-shadow"
               >
                 <div
-                  className={`w-12 h-12 ${industry.color} rounded-lg mx-auto mb-4 flex items-center justify-center`}
+                  className={`w-12 h-12 rounded-lg mx-auto flex items-center justify-center`}
                 >
-                  <IconComponent className="h-6 w-6 text-white" />
+                  <IconComponent className={`h-16 w-16 text-white clip-gradient`} />
                 </div>
-                <h4 className="font-semibold mb-2">{industry.title}</h4>
+                <h4 className="text-xl">{industry.title}</h4>
                 <p className="text-sm text-muted-foreground">
                   {industry.description}
                 </p>

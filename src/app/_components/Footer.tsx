@@ -265,7 +265,7 @@ export function Footer() {
           </p>
           <div className="flex items-center space-x-6 mt-4 md:mt-0">
             <span className="text-sm text-primary-foreground/60">
-              Built with modern technology stack
+              Built by Arbieter
             </span>
             <div className="flex items-center space-x-2">
               <div className="w-2 h-2 bg-green-500 rounded-full"></div>

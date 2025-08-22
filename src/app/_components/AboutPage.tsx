@@ -149,7 +149,7 @@ export function AboutPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background overflow-x-hidden">
       {/* Hero Section */}
       <section className="relative py-20 lg:py-28 bg-gradient-to-br from-primary/5 to-muted/20">
         <GradientBg />
@@ -197,9 +197,9 @@ export function AboutPage() {
             </div>
             <div className="relative">
               <ImageWithFallback
-                src="https://images.unsplash.com/photo-1627160280085-2dbb99a7c4ff?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzdHVkZW50JTIwcmVzZWFyY2glMjB0ZWNobm9sb2d5JTIwY29tcHV0ZXIlMjBsYWJ8ZW58MXx8fHwxNzU1MTA3MTc1fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                src="/steve-jobs.png"
                 alt="University research lab with modern technology and computers"
-                className="w-full h-[400px] object-cover rounded-2xl shadow-2xl"
+                className="md:ml-10 w-full md:w-[550px] h-[400px] object-cover rounded-2xl shadow-2xl scale-110"
               />
             </div>
           </div>
