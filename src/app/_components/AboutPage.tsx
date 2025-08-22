@@ -23,6 +23,7 @@ import {
   Coffee,
   Lightbulb,
 } from "lucide-react";
+import GradientBg from "./GradientBg";
 
 export function AboutPage() {
   const router = useRouter();
@@ -151,7 +152,8 @@ export function AboutPage() {
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
       <section className="relative py-20 lg:py-28 bg-gradient-to-br from-primary/5 to-muted/20">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <GradientBg />
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <Badge variant="secondary" className="mb-4">

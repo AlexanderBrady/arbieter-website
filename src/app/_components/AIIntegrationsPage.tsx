@@ -25,6 +25,7 @@ import {
   FileText,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
+import GradientBg from "./GradientBg";
 
 const solutions = [
   {
@@ -197,7 +198,8 @@ export function AIIntegrationsPage() {
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
       <section className="relative py-20 lg:py-28 bg-gradient-to-br from-primary/5 to-muted/20">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <GradientBg />
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* LEFT: text + buttons */}
             <div className="relative z-10">

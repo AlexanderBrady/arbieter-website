@@ -157,6 +157,10 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  .clip-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#4285F1] via-[#FF6C6D] to-[#FFB565] ;
+  } 
 }
 
 /* Simple sensible defaults for headings & text */
@@ -239,3 +243,22 @@
 ::selection {
   @apply bg-primary text-primary-foreground;
 }
+
+.pop-gradient {
+  background: linear-gradient(135deg, #4285F1 0%, #FFB565 25%, #FF6C6D 50%, #99A6FB 100%);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 100%; }
+  50% { background-position: 100% 100%; }
+  100% { background-position: 0% 100%; }
+}
+
+/* 
+/* 
+firstBlobColor = "bg-[#4285F1]",
+  secondBlobColor = "bg-[#FF6C6D]", 
+  thirdBlobColor = "bg-[#FFB565]",
+  fourthBlobColor = "bg-[#99A6FB]" */

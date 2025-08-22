@@ -32,6 +32,7 @@ import {
   Check,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
+import GradientBg from "./GradientBg";
 
 export function ContactPage() {
   const router = useRouter();
@@ -197,6 +198,7 @@ export function ContactPage() {
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
       <section className="relative py-20 lg:py-28 bg-gradient-to-br from-primary/5 to-muted/20">
+        <GradientBg />
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
             <Badge variant="secondary" className="mb-4">
@@ -215,7 +217,8 @@ export function ContactPage() {
 
       {/* Contact Form Section */}
       <section className="py-20 lg:py-28">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <GradientBg />
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="grid lg:grid-cols-3 gap-12">
             {/* Main Contact Form */}
             <div className="lg:col-span-2">

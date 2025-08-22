@@ -7,8 +7,9 @@ import {
 } from "./ui/card";
 import { Button } from "./ui/button";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
-import { Bot, Code, Building2, ArrowRight, Users } from "lucide-react";
+import { Bot, Code, Building2, ArrowRight, Users, Wrench } from "lucide-react";
 import Image from "next/image";
+import { motion } from "motion/react";
 
 export function ServicesSection() {
   const services = [
@@ -60,25 +61,25 @@ export function ServicesSection() {
 
   const industries = [
     {
-      icon: Building2,
+      icon: Wrench,
       title: "Construction",
       description:
         "Project management, safety monitoring, and resource optimisation solutions.",
-      color: "bg-blue-500",
+      color: "pop-gradient delay-1000 ",
     },
     {
       icon: Building2,
       title: "Real Estate",
       description:
         "Property management, market analysis, and client relationship tools.",
-      color: "bg-green-500",
+      color: "pop-gradient delay-150",
     },
     {
       icon: Code,
       title: "Technology",
       description:
         "Software development, AI integration, and digital transformation.",
-      color: "bg-purple-500",
+      color: "pop-gradient delay-200",
     },
   ];
 
@@ -181,7 +182,12 @@ export function ServicesSection() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: "linear" }}
+          className="grid md:grid-cols-3 gap-6"
+        >
           {industries.map((industry, index) => {
             const IconComponent = industry.icon;
             return (
@@ -201,7 +207,7 @@ export function ServicesSection() {
               </Card>
             );
           })}
-        </div>
+        </motion.div>
       </div>
       <Image
         src="/white-outward-logo.png"

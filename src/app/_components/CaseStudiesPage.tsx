@@ -24,6 +24,7 @@ import {
   ShieldCheck,
   Star,
 } from "lucide-react";
+import GradientBg from "./GradientBg";
 
 export function CaseStudiesPage() {
   const [selectedFilter, setSelectedFilter] = useState("all");
@@ -202,8 +203,9 @@ export function CaseStudiesPage() {
   return (
     <div className="min-h-screen bg-background">
       {/* Featured Case Study */}
-      <section className="py-20 lg:py-28">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 lg:py-28 relative">
+        <GradientBg />
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
           <Card className="overflow-hidden shadow-2xl">
             <div className="grid lg:grid-cols-2 gap-0">
               <div className="relative h-64 lg:h-auto">

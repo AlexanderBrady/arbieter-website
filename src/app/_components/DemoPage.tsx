@@ -23,6 +23,7 @@ import {
   PhoneCall,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
+import ThreeBlob from "./ThreeBlob";
 
 export function DemoPage() {
   const [isScheduled, setIsScheduled] = useState(false);
@@ -204,7 +205,7 @@ export function DemoPage() {
 
       {/* Demo Options */}
       <section className="py-20 lg:py-28">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 ">
           <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {demoOptions.map((option, index) => {
               const IconComponent = option.icon;
@@ -213,11 +214,14 @@ export function DemoPage() {
               return (
                 <Card
                   key={index}
-                  className={`p-8 ${
-                    isPrimary ? "ring-2 ring-primary" : ""
+                  className={`p-8  ${
+                    isPrimary 
+                      ? "ring-2 ring-primary relative overflow-hidden " 
+                      : ""
                   } hover:shadow-lg transition-shadow`}
                 >
-                  <CardHeader className="pb-6">
+                  {isPrimary && <ThreeBlob />}
+                  <CardHeader className={`pb-6 ${isPrimary ? "relative z-10" : ""}`}>
                     <div
                       className={`w-16 h-16 ${
                         isPrimary ? "bg-primary" : "bg-muted"
@@ -233,7 +237,10 @@ export function DemoPage() {
                     </div>
                     <div className="flex items-center justify-between">
                       <CardTitle className="text-xl">{option.title}</CardTitle>
-                      <Badge variant={isPrimary ? "default" : "secondary"}>
+                      <Badge 
+                        variant={isPrimary ? "secondary" : "secondary"}
+                        className={isPrimary ? "bg-black/20 text-white border-white/30 backdrop-blur-md" : ""}
+                      >
                         <Clock className="w-3 h-3 mr-1" />
                         {option.duration}
                       </Badge>
@@ -243,7 +250,7 @@ export function DemoPage() {
                     </CardDescription>
                   </CardHeader>
 
-                  <CardContent className="space-y-6">
+                  <CardContent className={`space-y-6 ${isPrimary ? "relative z-10" : ""}`}>
                     <div>
                       <h4 className="font-medium mb-3">
                         What&apos;s included:
@@ -324,7 +331,11 @@ export function DemoPage() {
                         </div>
 
                         <Button
-                          className="w-full"
+                          className={`w-full ${
+                            isPrimary 
+                              ? "bg-white/20 text-white border-white/30 hover:bg-white/30 backdrop-blur-sm" 
+                              : ""
+                          }`}
                           size="lg"
                           disabled={!canSubmit}
                           onClick={scheduleDemo}
