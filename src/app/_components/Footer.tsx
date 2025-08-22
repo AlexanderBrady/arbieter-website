@@ -14,6 +14,7 @@ import {
   Github,
   ArrowRight,
 } from "lucide-react";
+import Image from "next/image";
 
 export function Footer() {
   const navigation = {
@@ -87,7 +88,7 @@ export function Footer() {
   }
 
   return (
-    <footer className="bg-primary text-primary-foreground">
+    <footer className="bg-primary text-primary-foreground relative overflow-hidden">
       {/* Newsletter Section */}
       <div className="border-b border-primary-foreground/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -274,6 +275,13 @@ export function Footer() {
           </div>
         </div>
       </div>
+      <Image
+        src="/inward-logo.png"
+        alt="AI-powered robot with advanced capabilities"
+        className="max-md:scale-[70%] absolute bottom-0 md:right-0 right-[-60px] opacity-50"
+        width={300}
+        height={300}
+      />
     </footer>
   );
 }

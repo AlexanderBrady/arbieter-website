@@ -8,6 +8,7 @@ import {
 import { Button } from "./ui/button";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { Bot, Code, Building2, ArrowRight, Users } from "lucide-react";
+import Image from "next/image";
 
 export function ServicesSection() {
   const services = [
@@ -82,7 +83,7 @@ export function ServicesSection() {
   ];
 
   return (
-    <section className="py-20 lg:py-28 bg-background">
+    <section className="py-20 lg:py-28 bg-background relative z-10">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
@@ -202,6 +203,13 @@ export function ServicesSection() {
           })}
         </div>
       </div>
+      <Image
+        src="/white-outward-logo.png"
+        alt="AI-powered robot with advanced capabilities"
+        className="max-md:scale-[70%] absolute md:bottom-0 bottom-[-60px] md:left-0 left-[-60px] opacity-50 z-[-1]"
+        width={300}
+        height={300}
+      />
     </section>
   );
 }
