@@ -1,13 +1,185 @@
 import { Button } from "./ui/button";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
-import { ArrowRight, Play } from "lucide-react";
+import { ArrowRight, Play, Zap, Shield, Clock, Cpu, Globe, Rocket } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { motion } from "motion/react";
+import GradientBg from "./GradientBg";
+
+// Feature tabs data
+const featureTabs = [
+  {
+    id: 1,
+    title: "AI Powered",
+    subtitle: "Solutions",
+    icon: Zap,
+    color: "bg-primary/20",
+  },
+  {
+    id: 2,
+    title: "99.9% Uptime",
+    subtitle: "Guaranteed",
+    icon: Shield,
+    color: "bg-background/20",
+  },
+  {
+    id: 3,
+    title: "24/7 Support",
+    subtitle: "Available",
+    icon: Clock,
+    color: "bg-primary/20",
+  },
+  {
+    id: 4,
+    title: "Smart Analytics",
+    subtitle: "Insights",
+    icon: Cpu,
+    color: "bg-background/20",
+  },
+  {
+    id: 5,
+    title: "Global Scale",
+    subtitle: "Infrastructure",
+    icon: Globe,
+    color: "bg-primary/20",
+  },
+  {
+    id: 6,
+    title: "Fast Deploy",
+    subtitle: "Solutions",
+    icon: Rocket,
+    color: "bg-background/20",
+
+  },
+];
+
+// FloatingFeatureTabs component with true infinite marquee animation
+function FloatingFeatureTabs() {
+  return (
+    <div className="absolute bottom-4 left-0 right-0 h-16 overflow-hidden pointer-events-none">
+      <div className="flex h-full">
+        {/* First marquee track */}
+        <motion.div
+          className="flex items-center gap-6 h-full flex-shrink-0"
+          animate={{
+            x: ["0%", "-100%"]
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+        >
+          {featureTabs.map((feature, index) => {
+            const Icon = feature.icon;
+            
+            return (
+              <motion.div
+                key={`track1-${feature.id}`}
+                className={`${feature.color} rounded-lg p-3 pointer-events-auto cursor-pointer flex-shrink-0 backdrop-blur-md shadow-lg text-primary-foreground `}
+                whileHover={{
+                  scale: 1.1,
+                  zIndex: 10,
+                }}
+                initial={{
+                  opacity: 0,
+                  y: 20,
+                }}
+                animate={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                transition={{
+                  delay: index * 0.1,
+                  duration: 0.5,
+                }}
+              >
+                <div className="flex items-center gap-2 whitespace-nowrap">
+                  <Icon className="h-4 w-4 flex-shrink-0" />
+                  <div>
+                    <div className="text-sm font-medium">{feature.title}</div>
+                    <div className="text-xs opacity-90">{feature.subtitle}</div>
+                  </div>
+                </div>
+              </motion.div>
+            );
+          })}
+        </motion.div>
+
+        {/* Second marquee track (duplicate) - starts where first ends */}
+        <motion.div
+          className="flex items-center gap-6 h-full flex-shrink-0 ml-6"
+          animate={{
+            x: ["0%", "-100%"]
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+        >
+          {featureTabs.map((feature) => {
+            const Icon = feature.icon;
+            
+            return (
+              <div
+                key={`track2-${feature.id}`}
+                className={`${feature.color} rounded-lg p-3 pointer-events-auto cursor-pointer flex-shrink-0 backdrop-blur-md shadow-sm text-primary-foreground `}
+              >
+                <div className="flex items-center gap-2 whitespace-nowrap">
+                  <Icon className="h-4 w-4 flex-shrink-0" />
+                  <div>
+                    <div className="text-sm font-medium">{feature.title}</div>
+                    <div className="text-xs opacity-90">{feature.subtitle}</div>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </motion.div>
+
+        {/* Third marquee track for even more seamless effect */}
+        <motion.div
+          className="flex items-center gap-6 h-full flex-shrink-0"
+          animate={{
+            x: ["0%", "-100%"]
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+        >
+          {featureTabs.map((feature) => {
+            const Icon = feature.icon;
+            
+            return (
+              <div
+                key={`track3-${feature.id}`}
+                className={`${feature.color} rounded-lg p-3 shadow-lg pointer-events-auto cursor-pointer flex-shrink-0`}
+              >
+                <div className="flex items-center gap-2 whitespace-nowrap">
+                  <Icon className="h-4 w-4 flex-shrink-0" />
+                  <div>
+                    <div className="text-sm font-medium">{feature.title}</div>
+                    <div className="text-xs opacity-90">{feature.subtitle}</div>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </motion.div>
+      </div>
+    </div>
+  );
+}
 
 export function HeroSection() {
   const router = useRouter(); 
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-background to-muted/20">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+      {/* Gradient Background Element */}
+      
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28 z-[10] relative">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Hero Content */}
           <div className="max-w-2xl">
@@ -70,31 +242,23 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* Hero Image */}
+          {/* Hero Image with Animated Floating Feature Tabs */}
           <div className="relative lg:ml-8">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <ImageWithFallback
-                src="https://images.unsplash.com/photo-1678344647612-29de50226436?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBvZmZpY2UlMjBidWlsZGluZyUyMGNvbnN0cnVjdGlvbnxlbnwxfHx8fDE3NTUwMjM4OTN8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-                alt="Modern construction and technology"
+                src="/cute-robot-1.png"
+                alt="AI-powered robot with advanced capabilities"
                 className="w-full h-[500px] object-cover"
               />
-              {/* Overlay gradient */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
             </div>
 
-            {/* Floating elements */}
-            <div className="absolute -top-4 -right-4 bg-primary text-primary-foreground rounded-lg p-4 shadow-lg">
-              <div className="text-sm font-medium">AI Powered</div>
-              <div className="text-xs opacity-90">Solutions</div>
-            </div>
-
-            <div className="absolute -bottom-4 -left-4 bg-background border rounded-lg p-4 shadow-lg">
-              <div className="text-sm font-medium">99.9% Uptime</div>
-              <div className="text-xs text-muted-foreground">Guaranteed</div>
-            </div>
+            {/* Animated Floating Feature Tabs */}
+            <FloatingFeatureTabs />
           </div>
         </div>
       </div>
+      <GradientBg />
+
     </section>
   );
 }
