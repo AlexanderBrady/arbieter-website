@@ -215,13 +215,15 @@ export function DemoPage() {
                 <Card
                   key={index}
                   className={`p-8  ${
-                    isPrimary 
-                      ? "ring-2 ring-primary relative overflow-hidden " 
+                    isPrimary
+                      ? "ring-2 ring-primary relative overflow-hidden "
                       : ""
                   } hover:shadow-lg transition-shadow`}
                 >
                   {isPrimary && <ThreeBlob />}
-                  <CardHeader className={`pb-6 ${isPrimary ? "relative z-10" : ""}`}>
+                  <CardHeader
+                    className={`pb-6 ${isPrimary ? "relative z-10" : ""}`}
+                  >
                     <div
                       className={`w-16 h-16 ${
                         isPrimary ? "bg-primary" : "bg-muted"
@@ -236,10 +238,14 @@ export function DemoPage() {
                       />
                     </div>
                     <div className="flex items-center justify-between">
-                      <CardTitle className="text-xl">{option.title}</CardTitle> 
-                      <Badge 
+                      <CardTitle className="text-xl">{option.title}</CardTitle>
+                      <Badge
                         variant={isPrimary ? "secondary" : "secondary"}
-                        className={isPrimary ? "bg-black/20 text-white border-white/30 backdrop-blur-md" : ""}
+                        className={
+                          isPrimary
+                            ? "bg-black/20 text-white border-white/30 backdrop-blur-md"
+                            : ""
+                        }
                       >
                         <Clock className="w-3 h-3 mr-1" />
                         {option.duration}
@@ -250,7 +256,9 @@ export function DemoPage() {
                     </CardDescription>
                   </CardHeader>
 
-                  <CardContent className={`space-y-6 ${isPrimary ? "relative z-10" : ""}`}>
+                  <CardContent
+                    className={`space-y-6 ${isPrimary ? "relative z-10" : ""}`}
+                  >
                     <div>
                       <h4 className="font-medium mb-3">
                         What&apos;s included:
@@ -332,8 +340,8 @@ export function DemoPage() {
 
                         <Button
                           className={`w-full ${
-                            isPrimary 
-                              ? "bg-white/20 text-white border-white/30 hover:bg-white/30 backdrop-blur-sm" 
+                            isPrimary
+                              ? "bg-white/20 text-black border-black hover:bg-white/30 backdrop-blur-sm"
                               : ""
                           }`}
                           size="lg"
