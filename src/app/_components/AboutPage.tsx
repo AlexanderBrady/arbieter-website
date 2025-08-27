@@ -197,7 +197,7 @@ export function AboutPage() {
             </div>
             <div className="relative">
               <ImageWithFallback
-                src="/steve-jobs.png"
+                src="/construction.avif"
                 alt="University research lab with modern technology and computers"
                 className="md:ml-10 w-full md:w-[550px] h-[400px] object-cover rounded-2xl shadow-2xl scale-110"
               />
