@@ -26,6 +26,8 @@ import {
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import GradientBg from "./GradientBg";
+import AutomationSection from "./AutomationSection";
+import { FlowDiagram, socialMediaFlow } from "./automation-flows";
 
 const solutions = [
   {
@@ -195,7 +197,7 @@ export function AIIntegrationsPage() {
   const router = useRouter();
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative py-20 lg:py-28 bg-gradient-to-br from-primary/5 to-muted/20">
         <GradientBg />
@@ -204,10 +206,10 @@ export function AIIntegrationsPage() {
             {/* LEFT: text + buttons */}
             <div className="relative z-10">
               <Badge variant="secondary" className="mb-4">
-                AI Solutions
+                AI & Automation
               </Badge>
-              <h1 className="text-4xl lg:text-6xl font-bold mb-6">
-                Custom AI Solutions That Work in the Real World
+              <h1 className="text-4xl lg:text-6xl mb-6 inset-shadow">
+                Custom AI & Automation Solutions That Work in the Real World
               </h1>
               <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
                 We build AI systems that solve actual business problems—not just
@@ -235,12 +237,8 @@ export function AIIntegrationsPage() {
             </div>
 
             {/* RIGHT: image */}
-            <div className="relative z-0 mt-8 lg:mt-0">
-              <ImageWithFallback
-                src="https://images.unsplash.com/photo-1614680376739-414d95ff43df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHxBSSUyMGNoYXRib3QlMjBpbnRlcmZhY2V8ZW58MXx8fHwxNzU1MDkyMTYwfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-                alt="AI Chatbot Interface"
-                className="w-full h-[400px] object-cover rounded-2xl shadow-2xl"
-              />
+            <div className="relative z-0 mt-8 lg:mt-0 shadow-2xl">
+             <FlowDiagram flow={socialMediaFlow} scale={2} className="max-h-[400px]"/>
             </div>
           </div>
         </div>
@@ -250,7 +248,7 @@ export function AIIntegrationsPage() {
       <section className="py-20 lg:py-28">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl lg:text-5xl font-bold mb-6">
+            <h2 className="text-3xl lg:text-5xl mb-6 inset-shadow">
               Four Types of AI Solutions We Build
             </h2>
             <p className="text-lg text-muted-foreground">
@@ -330,52 +328,14 @@ export function AIIntegrationsPage() {
       </section>
 
       {/* Real World Examples */}
-      <section className="py-20 lg:py-28 bg-muted/30">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl lg:text-5xl font-bold mb-6">
-              Real-World Applications
-            </h2>
-            <p className="text-lg text-muted-foreground">
-              See how these AI solutions perform in actual business environments
-              across different industries.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {realWorldExamples.map((example, index) => {
-              const IconComponent = example.icon;
-              return (
-                <Card
-                  key={index}
-                  className="text-center p-6 bg-background hover:shadow-md transition-shadow"
-                >
-                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <IconComponent className="h-8 w-8 text-primary" />
-                  </div>
-                  <h3 className="font-semibold mb-2">{example.title}</h3>
-                  <Badge variant="outline" className="mb-3 text-xs">
-                    {example.industry}
-                  </Badge>
-                  <p className="text-sm text-muted-foreground mb-4">
-                    {example.description}
-                  </p>
-                  <div className="text-lg font-bold text-primary">
-                    {example.result}
-                  </div>
-                </Card>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+     <AutomationSection />
 
       {/* How We Build Section */}
       <section className="py-20 lg:py-28">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <div>
-              <h2 className="text-3xl lg:text-5xl font-bold mb-6">
+              <h2 className="text-3xl lg:text-5xl mb-6 inset-shadow">
                 How We Build AI Solutions
               </h2>
               <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
@@ -419,7 +379,7 @@ export function AIIntegrationsPage() {
       </section>
 
       {/* Technical Approach */}
-      <section className="py-20 lg:py-28 bg-muted/30">
+      {/* <section className="py-20 lg:py-28 bg-muted/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl lg:text-5xl font-bold mb-6">
@@ -466,7 +426,7 @@ export function AIIntegrationsPage() {
             </Card>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* CTA Section */}
       <section className="py-20 lg:py-28">

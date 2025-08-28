@@ -53,7 +53,7 @@ export default function Orb({
     }
     
     vec3 adjustHue(vec3 color, float hueDeg) {
-      float hueRad = hueDeg * 3.14159265 / 180.0;
+      float hueRad = hueDeg * 3.14159265;
       vec3 yiq = rgb2yiq(color);
       float cosA = cos(hueRad);
       float sinA = sin(hueRad);
@@ -105,9 +105,9 @@ export default function Orb({
       return vec4(colorIn.rgb / (a + 1e-5), a);
     }
     
-    const vec3 baseColor1 = vec3(0.611765, 0.262745, 0.996078);
-    const vec3 baseColor2 = vec3(0.298039, 0.760784, 0.913725);
-    const vec3 baseColor3 = vec3(0.062745, 0.078431, 0.600000);
+    const vec3 baseColor1 = vec3(0.258824, 0.521569, 0.945098);
+    const vec3 baseColor2 = vec3(1.0, 0.423529, 0.623529);
+    const vec3 baseColor3 = vec3(1.0, 0.709804, 0.396078);
     const float innerRadius = 0.6;
     const float noiseScale = 0.65;
     
@@ -153,8 +153,8 @@ export default function Orb({
     }
     
     vec4 mainImage(vec2 fragCoord) {
-      vec2 center = iResolution.xy * 0.5;
-      float size = min(iResolution.x, iResolution.y);
+      vec2 center = vec2(iResolution.x * 0.5, iResolution.y * 0.25);
+      float size = min(iResolution.x, iResolution.y) * 2.0;
       vec2 uv = (fragCoord - center) / size * 2.0;
       
       float angle = rot;

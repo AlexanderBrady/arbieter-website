@@ -178,7 +178,7 @@ export function ServicesSection() {
             Industries We Serve
           </h1>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Specialized expertise across key sectors with deep understanding of
+            Specialized expertise across sectors with deep understanding of
             industry challenges and opportunities.
           </p>
         </div>

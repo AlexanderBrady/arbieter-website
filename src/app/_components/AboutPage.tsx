@@ -159,7 +159,7 @@ export function AboutPage() {
               <Badge variant="secondary" className="mb-4">
                 About Arbieter
               </Badge>
-              <h1 className="text-4xl lg:text-6xl font-bold mb-6">
+              <h1 className="text-4xl lg:text-6xl mb-6 inset-shadow">
                 We&apos;re Not Another AI Agency
               </h1>
               <div className="text-lg text-muted-foreground mb-8 leading-relaxed space-y-4">
@@ -211,7 +211,7 @@ export function AboutPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <div>
-              <h2 className="text-3xl lg:text-5xl font-bold mb-6">
+              <h2 className="text-3xl lg:text-5xl mb-6 inset-shadow">
                 Our Approach
               </h2>
               <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
@@ -250,7 +250,7 @@ export function AboutPage() {
       <section className="py-20 lg:py-28 bg-muted/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl lg:text-5xl font-bold mb-6">
+            <h2 className="text-3xl lg:text-5xl mb-6 inset-shadow">
               What Sets Us Apart
             </h2>
             <p className="text-lg text-muted-foreground">
@@ -286,7 +286,7 @@ export function AboutPage() {
       <section className="py-20 lg:py-28">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl lg:text-5xl font-bold mb-6">
+            <h2 className="text-3xl lg:text-5xl mb-6 inset-shadow">
               Industries We&apos;ve Transformed
             </h2>
             <p className="text-lg text-muted-foreground">
@@ -324,7 +324,7 @@ export function AboutPage() {
       <section className="py-20 lg:py-28 bg-muted/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl lg:text-5xl font-bold mb-6">
+            <h2 className="text-3xl lg:text-5xl mb-6 inset-shadow">
               Leadership &amp; Expertise
             </h2>
             <p className="text-lg text-muted-foreground">
@@ -338,8 +338,8 @@ export function AboutPage() {
             {teamMembers.map((member, index) => (
               <Card key={index} className="p-6 bg-background">
                 <CardHeader className="pb-4">
-                  <div className="w-16 h-16 bg-gradient-to-br from-primary/20 to-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Lightbulb className="h-8 w-8 text-primary" />
+                  <div className="w-16 h-16 rounded-full flex  border border-muted items-center justify-center mx-auto mb-4">
+                    <Lightbulb className="h-12 w-12 text-muted inset-shadow" />
                   </div>
                   <CardTitle className="text-lg text-center">
                     {member.name}
@@ -374,10 +374,10 @@ export function AboutPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 lg:py-28">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center bg-primary/5 rounded-2xl p-12">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-6">
+      <section className="py-20 lg:py-28  bg-radial-[at_50%_25%] from-slate-100 to-slate-300 to-105%">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center rounded-2xl p-12">
+            <h2 className="text-3xl lg:text-4xl mb-6 inset-shadow">
               Ready to Work with Real Technologists?
             </h2>
             <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">

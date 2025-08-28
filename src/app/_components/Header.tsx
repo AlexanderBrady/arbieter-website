@@ -56,7 +56,7 @@ export function Header() {
               href="/ai-integrations"
               className="text-sm transition-all duration-200 hover:text-primary hover:-translate-y-0.5 relative group"
             >
-              AI Solutions
+              AI & Automation
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-200 group-hover:w-full"></span>
             </Link>
             <Link
@@ -133,7 +133,7 @@ export function Header() {
                 onClick={closeMenu}
                 className="block w-full text-left px-3 py-2 text-sm transition-colors hover:text-primary"
               >
-                AI Solutions
+                AI & Automation
               </Link>
               <Link
                 href="/case-studies"

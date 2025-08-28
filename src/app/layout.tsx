@@ -19,8 +19,8 @@ export default function RootLayout({
         <Header />
         <main>{children}</main>
         <Footer />
-      </body>
       <svg className="sr-only"><filter id="inset-shadow"><feOffset dx="2" dy="2"></feOffset><feGaussianBlur stdDeviation="2" result="offset-blur"></feGaussianBlur><feComposite operator="out" in="SourceGraphic" in2="offset-blur" result="inverse"></feComposite><feFlood floodColor="black" floodOpacity=".50" result="color"></feFlood><feComposite operator="in" in="color" in2="inverse" result="shadow"></feComposite><feComposite operator="over" in="shadow" in2="SourceGraphic"></feComposite></filter></svg>
+      </body>
     </html>
   );
 }

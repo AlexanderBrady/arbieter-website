@@ -199,12 +199,12 @@ export function ContactPage() {
       {/* Hero Section */}
       <section className="relative py-20 lg:py-28 bg-gradient-to-br from-primary/5 to-muted/20">
         <GradientBg />
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center max-w-4xl mx-auto">
             <Badge variant="secondary" className="mb-4">
               Contact Us
             </Badge>
-            <h1 className="text-4xl lg:text-6xl font-bold mb-6">
+            <h1 className="text-4xl lg:text-6xl font-bold mb-6 inset-shadow">
               Let&apos;s Build Something That Actually Ships
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">

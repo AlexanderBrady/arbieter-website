@@ -10,13 +10,13 @@ export function HeroSection() {
   const router = useRouter();
 
   return (
-    <section className="relative overflow-hidden">
+    <section className="relative overflow-hidden md:h-[calc(100vh-5vh)]">
       {/* Orb Background */}
-      <div className="absolute inset-0 -z-20">
+      <div className="absolute inset-0 -z-10 ">
         <Orb
           hoverIntensity={0.7}
           rotateOnHover={true}
-          hue={220}
+          hue={180}
           forceHoverState={false}
         />
       </div>
@@ -25,7 +25,7 @@ export function HeroSection() {
       <div className="absolute inset-0 -z-10 pointer-events-none bg-gradient-to-b from-background/70 to-muted/30" />
 
       {/* Hero Content (centered) */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28 z-[10] relative">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:pb-28 lg:mt-[15vh] z-[10] relative">
         <div className="max-w-3xl mx-auto text-center">
           {/* Badge */}
           <div className="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 text-primary text-sm mb-6">
@@ -71,7 +71,7 @@ export function HeroSection() {
           </div>
 
           {/* Stats */}
-          <div className="grid grid-cols-3 gap-8 pt-8 border-t">
+          {/* <div className="grid grid-cols-3 gap-8 pt-8 border-t">
             <div>
               <div className="text-2xl font-bold text-primary">50+</div>
               <div className="text-sm text-muted-foreground">
@@ -90,7 +90,7 @@ export function HeroSection() {
                 Support Available
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
 

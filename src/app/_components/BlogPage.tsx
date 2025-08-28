@@ -61,7 +61,7 @@ export function BlogPage() {
     },
     {
       id: 3,
-      title: 'Construction Tech: AI Solutions for Project Management',
+      title: 'Construction Tech: AI & Automation Solutions for Project Management',
       summary: 'Explore how construction companies are using AI for scheduling, resource allocation, and predictive maintenance to reduce delays and costs.',
       category: 'industry',
       categoryName: 'Industry Insights',
@@ -74,7 +74,7 @@ export function BlogPage() {
     },
     {
       id: 4,
-      title: 'Building Custom AI Solutions: A Developer\'s Guide',
+      title: 'Building Custom AI & Automation Solutions: A Developer\'s Guide',
       summary: 'Technical insights into developing bespoke AI applications, from choosing the right frameworks to deployment best practices.',
       category: 'development',
       categoryName: 'Development',
