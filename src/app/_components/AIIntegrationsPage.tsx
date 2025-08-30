@@ -158,41 +158,6 @@ const buildProcess = [
   },
 ];
 
-const realWorldExamples = [
-  {
-    title: "Construction Lead Bot",
-    industry: "Construction",
-    result: "300% increase in qualified leads",
-    description:
-      "AI chatbot that qualifies construction leads and books site consultations automatically.",
-    icon: MessageCircle,
-  },
-  {
-    title: "Property Analysis Copilot",
-    industry: "Real Estate",
-    result: "70% faster property reports",
-    description:
-      "Internal AI that analyzes market data and generates comprehensive property investment reports.",
-    icon: FileText,
-  },
-  {
-    title: "Hotel Operations AI",
-    industry: "Hospitality",
-    result: "50% admin time savings",
-    description:
-      "Industry-specific tool that automates guest services and optimizes housekeeping schedules.",
-    icon: Wrench,
-  },
-  {
-    title: "Multi-System Dashboard",
-    industry: "Technology",
-    result: "Unified data across 5 platforms",
-    description:
-      "Data integration connecting CRM, project management, and financial systems in real-time.",
-    icon: Database,
-  },
-];
-
 export function AIIntegrationsPage() {
   const router = useRouter();
 
@@ -264,18 +229,15 @@ export function AIIntegrationsPage() {
               return (
                 <Card
                   key={index}
-                  className="p-6 hover:shadow-lg transition-shadow h-full"
+                  className="p-6 hover:shadow-lg transition-shadow h-full relative overflow-clip"
                 >
-                  <CardHeader className="pb-4">
-                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                      <IconComponent className="h-6 w-6 text-primary" />
-                    </div>
+                  <CardHeader className="pb-4 z-10">
                     <CardTitle className="text-xl">{solution.title}</CardTitle>
                     <CardDescription className="text-base">
                       {solution.description}
                     </CardDescription>
                   </CardHeader>
-                  <CardContent className="pt-0 space-y-6">
+                  <CardContent className="pt-0 space-y-6 z-10">
                     <div>
                       <h4 className="font-medium mb-3">Key Features:</h4>
                       <ul className="space-y-2">
@@ -284,7 +246,7 @@ export function AIIntegrationsPage() {
                             key={featureIndex}
                             className="flex items-start text-sm"
                           >
-                            <CheckCircle className="h-4 w-4 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
+                            <CheckCircle className="h-4 w-4 text-green-700 mr-2 flex-shrink-0 mt-0.5" />
                             {feature}
                           </li>
                         ))}
@@ -296,9 +258,9 @@ export function AIIntegrationsPage() {
                         {solution.benefits.map((benefit, benefitIndex) => (
                           <div
                             key={benefitIndex}
-                            className="flex items-center p-2 bg-green-50 rounded-lg"
+                            className="flex items-center p-2 bg-white/30 rounded-lg"
                           >
-                            <BarChart3 className="h-4 w-4 text-green-600 mr-2" />
+                            <BarChart3 className="h-4 w-4 text-green-700 mr-2" />
                             <span className="text-sm font-medium text-green-700">
                               {benefit}
                             </span>
@@ -320,6 +282,8 @@ export function AIIntegrationsPage() {
                       </div>
                     </div>
                   </CardContent>
+                  <IconComponent className="h-40 w-40 text-background inset-shadow absolute -top-4 -right-4 opacity-35" />
+
                 </Card>
               );
             })}
@@ -378,64 +342,11 @@ export function AIIntegrationsPage() {
         </div>
       </section>
 
-      {/* Technical Approach */}
-      {/* <section className="py-20 lg:py-28 bg-muted/30">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl lg:text-5xl font-bold mb-6">
-              Technical Excellence
-            </h2>
-            <p className="text-lg text-muted-foreground">
-              Our AI solutions are built on proven technologies and engineering
-              best practices.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            <Card className="p-6 text-center bg-background">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Brain className="h-8 w-8 text-blue-600" />
-              </div>
-              <h3 className="font-semibold mb-3">Advanced ML Models</h3>
-              <p className="text-sm text-muted-foreground">
-                Custom machine learning models trained on your specific data and
-                use cases for maximum accuracy and relevance.
-              </p>
-            </Card>
-
-            <Card className="p-6 text-center bg-background">
-              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Settings className="h-8 w-8 text-green-600" />
-              </div>
-              <h3 className="font-semibold mb-3">Seamless Integration</h3>
-              <p className="text-sm text-muted-foreground">
-                API-first architecture that connects with your existing systems
-                without disrupting current workflows.
-              </p>
-            </Card>
-
-            <Card className="p-6 text-center bg-background">
-              <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Zap className="h-8 w-8 text-purple-600" />
-              </div>
-              <h3 className="font-semibold mb-3">Production Ready</h3>
-              <p className="text-sm text-muted-foreground">
-                Enterprise-grade security, scalability, and monitoring built in
-                from day one.
-              </p>
-            </Card>
-          </div>
-        </div>
-      </section> */}
-
       {/* CTA Section */}
-      <section className="py-20 lg:py-28">
+      <section className="py-20 lg:py-28 ">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center bg-primary/5 rounded-2xl p-12">
-            <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
-              <Lightbulb className="h-10 w-10 text-primary" />
-            </div>
-            <h2 className="text-3xl lg:text-4xl font-bold mb-6">
+          <div className="text-center rounded-2xl p-12 bg-radial-[at_50%_25%] from-slate-100 to-slate-300 to-105%">
+            <h2 className="text-3xl lg:text-4xl mb-6 inset-shadow">
               Let&rsquo;s Build Your AI System
             </h2>
             <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">

@@ -1,10 +1,37 @@
 import "./globals.css"; // ⬅️ Import your Tailwind & theme styles
 import { Header } from "@/app/_components/Header";
 import { Footer } from "@/app/_components/Footer";
+import { siteMetadata } from "./_utils/utils";
+import { Metadata } from "next";
 
-export const metadata = {
-  title: "Arbieter",
-  description: "Arbieter site",
+export const metadata:Metadata = {
+  title: siteMetadata.title,
+  description: siteMetadata.description,
+  keywords: siteMetadata.keywords,
+  authors: {
+    name: siteMetadata.author,
+    url: siteMetadata.url,
+  },
+  robots: siteMetadata.robots,
+  openGraph: {
+    title: siteMetadata.title,
+    description: siteMetadata.description,
+    images: siteMetadata.ogImage,
+    siteName: siteMetadata.siteName,
+    locale: siteMetadata.locale,
+    type: "website",
+    url: siteMetadata.url,
+  },
+  twitter: {
+    card: siteMetadata.twitter.card,
+    title: siteMetadata.twitter.title,
+    description: siteMetadata.twitter.description,
+    images: siteMetadata.twitter.image,
+  },
+  facebook: {
+    appId: siteMetadata.facebook.appId,
+  },
+  themeColor: siteMetadata.themeColor,
 };
 
 export default function RootLayout({

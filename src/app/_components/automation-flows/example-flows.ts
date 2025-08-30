@@ -293,7 +293,6 @@ export const documentProcessingFlow = {
       target: 'invoice-processing',
       type: 'smoothstep',
       animated: true,
-      label: 'Invoice',
     },
     {
       id: 'e4',
@@ -301,7 +300,6 @@ export const documentProcessingFlow = {
       target: 'contract-review',
       type: 'smoothstep',
       animated: true,
-      label: 'Contract',
     },
     {
       id: 'e5',
@@ -309,7 +307,6 @@ export const documentProcessingFlow = {
       target: 'report-analysis',
       type: 'smoothstep',
       animated: true,
-      label: 'Report',
     },
     {
       id: 'e6',
