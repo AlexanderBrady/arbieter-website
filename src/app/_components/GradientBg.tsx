@@ -16,7 +16,7 @@ const GradientBg = ({
   fourthBlobColor = "bg-[#99A6FB]"
 }: BlobProps) => {
   return (
-    <div className="absolute md:top-0 -top-32 left-0 min-h-52 min-w-52 items-center justify-center z-[0] opacity-50">
+    <div className="absolute md:top-0 -top-32 left-0 min-h-52 min-w-52 items-center justify-center z-[0] opacity-50 max-md:scale-[50%]">
       <div className="relative w-full max-w-lg">
         {/* First blob - Blue */}
         <div

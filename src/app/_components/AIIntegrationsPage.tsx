@@ -28,6 +28,7 @@ import { useRouter } from "next/navigation";
 import GradientBg from "./GradientBg";
 import AutomationSection from "./AutomationSection";
 import { FlowDiagram, socialMediaFlow } from "./automation-flows";
+import Image from "next/image";
 
 const solutions = [
   {
@@ -202,8 +203,8 @@ export function AIIntegrationsPage() {
             </div>
 
             {/* RIGHT: image */}
-            <div className="relative z-0 mt-8 lg:mt-0 shadow-2xl">
-             <FlowDiagram flow={socialMediaFlow} scale={2} className="max-h-[400px]"/>
+            <div className="relative z-0 mt-8 lg:mt-0 shadow-2xl rounded-2xl overflow-hidden max-md:h-[30vh]">
+             <Image src="/ai-automation-cover.png" alt="AI Integrations" width={500} height={500} className="w-full h-full object-cover" />
             </div>
           </div>
         </div>
