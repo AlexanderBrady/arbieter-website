@@ -421,8 +421,8 @@ export function DemoPage() {
       {/* CTA Section */}
       <section className="py-20 lg:py-28">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center bg-primary/5 rounded-2xl p-12">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-6">
+          <div className="text-center bg-radial-[at_50%_25%] from-slate-100 to-slate-300 to-105 rounded-2xl p-12">
+            <h2 className="text-3xl lg:text-4xl mb-6 inset-shadow">
               Ready to Transform Your Operations?
             </h2>
             <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">

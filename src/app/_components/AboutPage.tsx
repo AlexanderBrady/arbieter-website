@@ -378,7 +378,7 @@ export function AboutPage() {
         <div className="mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center rounded-2xl p-12">
             <h2 className="text-3xl lg:text-4xl mb-6 inset-shadow">
-              Ready to Work with Real Technologists?
+              Ready to Work with Us?
             </h2>
             <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
               Skip the sales pitch. Let&apos;s have a technical conversation

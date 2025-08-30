@@ -210,13 +210,13 @@ export function ServicesSection() {
           })}
         </motion.div>
       </div>
-      <Image
+      {/* <Image
         src="/white-outward-logo.png"
         alt="AI-powered robot with advanced capabilities"
         className="max-md:scale-[70%] absolute md:bottom-0 bottom-[-60px] md:left-0 left-[-60px] opacity-50 z-[-1]"
         width={300}
         height={300}
-      />
+      /> */}
     </section>
   );
 }

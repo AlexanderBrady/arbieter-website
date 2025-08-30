@@ -33,7 +33,7 @@
 
   --muted: #e1e1ea;
   --muted-foreground: #717182;
-  --accent: #e9ebef;
+  --accent: rgb(245, 248, 253);
   --accent-foreground: #030213;
 
   --destructive: #d4183d;
@@ -41,8 +41,8 @@
 
   --border: rgba(0, 0, 0, 0.1);
   --input: transparent;
-  --input-background: #f3f3f5;
-  --switch-background: #cbced4;
+  --input-background: #E6ECF0;
+  --switch-background: #E6ECF0;
 
   --font-weight-medium: 500;
   --font-weight-normal: 400;

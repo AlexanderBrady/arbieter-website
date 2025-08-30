@@ -197,14 +197,14 @@ export function ContactPage() {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className="relative py-20 lg:py-28 bg-gradient-to-br from-primary/5 to-muted/20">
+      <section className="relative py-20 lg:py-28 bg-gradient-to-br from-primary/5 to-muted/20 overflow-hidden" >
         <GradientBg />
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center max-w-4xl mx-auto">
             <Badge variant="secondary" className="mb-4">
               Contact Us
             </Badge>
-            <h1 className="text-4xl lg:text-6xl font-bold mb-6 inset-shadow">
+            <h1 className="text-4xl lg:text-6xl mb-6 inset-shadow">
               Let&apos;s Build Something That Actually Ships
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
@@ -213,11 +213,11 @@ export function ContactPage() {
             </p>
           </div>
         </div>
+        <GradientBg />
       </section>
 
       {/* Contact Form Section */}
       <section className="py-20 lg:py-28">
-        <GradientBg />
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="grid lg:grid-cols-3 gap-12">
             {/* Main Contact Form */}
@@ -544,10 +544,10 @@ export function ContactPage() {
       <section className="py-20 lg:py-28 bg-muted/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl lg:text-4xl font-bold text-center mb-12">
+            <h2 className="text-3xl lg:text-4xl mb-6 inset-shadow text-center">
               Frequently Asked Questions
             </h2>
-            <Accordion type="single" collapsible className="space-y-4">
+            <Accordion type="single" collapsible className="space-y-4 ">
               {faqItems.map((item, index) => (
                 <AccordionItem
                   key={index}
